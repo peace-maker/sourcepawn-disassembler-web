@@ -1,0 +1,18 @@
+<ul class="list-unstyled components" *ngIf="smxfile && smxfile.header">
+  <p>Section list</p>
+  <li *ngFor="let section of sectionList()">
+    <div *ngIf="section.hasDropdown; then itemWithDropdown; else itemNoDropdown"></div>
+    <ng-template #itemWithDropdown>
+      <a href="#" class="dropdown-toggle" (click)="section.header.dropdownVisible = !section.header.dropdownVisible"
+        [attr.aria-expanded]="section.header.dropdownVisible">{{section.name}}</a>
+      <ul class="list-unstyled" [ngbCollapse]="!section.header.dropdownVisible">
+        <li *ngFor="let item of section.dropdown">
+          <a href="#">{{ item }}</a>
+        </li>
+      </ul>
+    </ng-template>
+    <ng-template #itemNoDropdown>
+      <a href="#" (click)="selectSection.emit(section)">{{section.name}}</a>
+    </ng-template>
+  </li>
+</ul>

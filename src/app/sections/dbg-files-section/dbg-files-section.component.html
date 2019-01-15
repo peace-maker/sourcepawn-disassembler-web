@@ -1,0 +1,18 @@
+<div *ngIf="section && section.name ==='.dbg.files'">
+    <h2>{{ section.name }} section</h2>
+    <app-section-header [section]="section"></app-section-header>
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Filename</th>
+          <th scope="col">Start address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of files.entries">
+          <td><span title="nameoffs: 0x{{ entry.nameoffs | toHex }}">{{ entry.name }}</span></td>
+          <td>0x{{ entry.address | toHex }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

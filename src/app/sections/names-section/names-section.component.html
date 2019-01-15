@@ -1,0 +1,9 @@
+<div *ngIf="section && (section.name =='.names' || section.name == '.dbg.strings')">
+  <h2>{{ section.name }} section</h2>
+  <app-section-header [section]="section"></app-section-header>
+  <ol class="list-group">
+    <li *ngFor="let name of namesList()" class="list-group-item">
+      {{ name }}
+    </li>
+  </ol>
+</div>

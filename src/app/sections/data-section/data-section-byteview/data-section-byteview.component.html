@@ -1,0 +1,24 @@
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Offset</th>
+      <th scope="col">Data</th>
+      <th scope="col">Rendered</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of getBytes()" id="row{{ row.offset }}" class="text-monospace">
+      <th scope="row">0x{{ row.offset.toString(16) }}</th>
+      <td class="hexdigits">
+        <span *ngFor="let col of row.bytes; index as i" id="hex{{ i }}_{{ row.offset }}" [appHighlightByte]="'char' + i + '_' + row.offset">
+          {{ col | toHex }}
+        </span>
+      </td>
+      <td class="charrendering">
+        <span *ngFor="let col of row.bytes; index as i" id="char{{ i }}_{{ row.offset }}" [appHighlightByte]="'hex' + i + '_' + row.offset">
+          {{ col | charFromCode:true }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

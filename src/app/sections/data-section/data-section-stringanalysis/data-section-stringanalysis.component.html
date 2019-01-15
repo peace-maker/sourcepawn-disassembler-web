@@ -1,0 +1,14 @@
+<table class="table table-sm table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Offset</th>
+      <th scope="col">String</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of stringList()">
+      <td>0x{{ s.offset.toString(16) }}</td>
+      <td>{{ s.string }}</td>
+    </tr>
+  </tbody>
+</table>

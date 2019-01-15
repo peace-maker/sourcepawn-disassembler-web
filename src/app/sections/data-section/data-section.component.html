@@ -1,0 +1,24 @@
+<div *ngIf="section && section.name == '.data'">
+  <h2>Data View</h2>
+  <app-section-header [section]="section" [extraHeaders]="headers"></app-section-header>
+  <div class="btn-group btn-group-sm" role="group" aria-label="Data View Mode">
+    <button type="button" class="btn btn-outline-secondary" [class.active]="viewType == ViewType.ByteView" (click)="viewType = ViewType.ByteView">Byte
+      View</button>
+    <button type="button" class="btn btn-outline-secondary" [class.active]="viewType == ViewType.CellView" (click)="viewType = ViewType.CellView">Cell
+      View</button>
+    <button type="button" class="btn btn-outline-secondary" [class.active]="viewType == ViewType.StringAnalysis"
+      (click)="viewType = ViewType.StringAnalysis">String Analysis</button>
+  </div>
+
+  <div [ngSwitch]="viewType">
+    <div *ngSwitchCase="ViewType.ByteView">
+      <app-data-section-byteview [section]="section"></app-data-section-byteview>
+    </div>
+    <div *ngSwitchCase="ViewType.CellView">
+      <app-data-section-cellview [section]="section"></app-data-section-cellview>
+    </div>
+    <div *ngSwitchCase="ViewType.StringAnalysis">
+      <app-data-section-stringanalysis [section]="section"></app-data-section-stringanalysis>
+    </div>
+  </div>
+</div>

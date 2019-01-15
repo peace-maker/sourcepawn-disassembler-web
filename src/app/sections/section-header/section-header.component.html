@@ -1,0 +1,24 @@
+<button type="button" class="btn btn-sm btn-outline-secondary" (click)="hideHeaders = !hideHeaders"
+  [attr.aria-expanded]="!hideHeaders" aria-controls="sectionHeaders">Toggle section headers</button>
+<div id="sectionHeaders" [ngbCollapse]="hideHeaders">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Section Headers</h5>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Header</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let header of sectionHeaders()">
+            <td>{{ header.key }}</td>
+            <td>{{ header.value }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<br /><br />
