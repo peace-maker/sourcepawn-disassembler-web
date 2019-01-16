@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SourcePawnFile } from 'sourcepawn-disassembler';
+import { SectionWrapper } from './sectionwrapper';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { SourcePawnFile } from 'sourcepawn-disassembler';
 export class AppComponent {
   title = 'SourcePawn Disassembler';
   hideSectionList = false;
-  selectedSection;
+  selectedSection: SectionWrapper;
+  selectedSubsection: string;
 
   smxfile: SourcePawnFile;
 

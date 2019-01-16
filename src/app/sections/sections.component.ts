@@ -60,6 +60,15 @@ export class SectionsComponent implements OnInit {
         case '.dbg.natives':
           section.bin = this.smxfile.debugNatives;
           break;
+        case '.dbg.symbols':
+          section.bin = this.smxfile.debugSymbols;
+          if (section.bin) {
+            section.hasDropdown = true;
+            section.dropdown = [];
+            section.dropdown.push('globals');
+            section.dropdown.push('functions');
+          }
+          break;
         case '.dbg.strings':
           section.bin = this.smxfile.debugNames;
           break;

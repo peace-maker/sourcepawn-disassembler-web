@@ -20,8 +20,12 @@ import { NativesSectionComponent } from './sections/natives-section/natives-sect
 import { DbgFilesSectionComponent } from './sections/dbg-files-section/dbg-files-section.component';
 import { DbgLinesSectionComponent } from './sections/dbg-lines-section/dbg-lines-section.component';
 import { DbgNativesSectionComponent } from './sections/dbg-natives-section/dbg-natives-section.component';
-import { SymkindAsStringPipe } from './symkind-as-string.pipe';
+import { SymKindAsStringPipe } from './sym-kind-as-string.pipe';
 import { TagsSectionComponent } from './sections/tags-section/tags-section.component';
+import { DbgSymbolsSectionComponent } from './sections/dbg-symbols-section/dbg-symbols-section.component';
+import { DbgSymbolsGlobalsComponent } from './sections/dbg-symbols-section/dbg-symbols-globals/dbg-symbols-globals.component';
+import { SymScopeAsStringPipe } from './sym-scope-as-string.pipe';
+import { DbgSymbolsFunctionsComponent } from './sections/dbg-symbols-section/dbg-symbols-functions/dbg-symbols-functions.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +46,12 @@ import { TagsSectionComponent } from './sections/tags-section/tags-section.compo
     DbgFilesSectionComponent,
     DbgLinesSectionComponent,
     DbgNativesSectionComponent,
-    SymkindAsStringPipe,
-    TagsSectionComponent
+    SymKindAsStringPipe,
+    TagsSectionComponent,
+    DbgSymbolsSectionComponent,
+    DbgSymbolsGlobalsComponent,
+    SymScopeAsStringPipe,
+    DbgSymbolsFunctionsComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@ export class NamesSectionComponent implements OnInit {
     const names = [];
     const namesSection = this.section.bin as SmxNameTable;
     for (const i of namesSection.offsets) {
-      names.push(namesSection.stringAt(i));
+      names.push({'offset': i, 'string': namesSection.stringAt(i)});
     }
     return names;
   }

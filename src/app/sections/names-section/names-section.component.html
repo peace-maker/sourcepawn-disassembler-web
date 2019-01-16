@@ -1,9 +1,19 @@
 <div *ngIf="section && (section.name =='.names' || section.name == '.dbg.strings')">
   <h2>{{ section.name }} section</h2>
   <app-section-header [section]="section"></app-section-header>
-  <ol class="list-group">
-    <li *ngFor="let name of namesList()" class="list-group-item">
-      {{ name }}
-    </li>
-  </ol>
+
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Offset</th>
+        <th scope="col">String</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of namesList()">
+        <th scope="row">0x{{ entry.offset | toHex }}</th>
+        <td>{{ entry.string }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

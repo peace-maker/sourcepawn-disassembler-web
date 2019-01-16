@@ -4,7 +4,7 @@
         <div class="sidebar-header">
             <h4>Sections</h4>
         </div>
-        <app-sections [smxfile]="smxfile" (selectSection)="selectedSection=$event"></app-sections>
+        <app-sections [smxfile]="smxfile" (selectSection)="selectedSection=$event.main; selectedSubsection=$event.sub"></app-sections>
     </nav>
 
     <!-- Page content -->
@@ -29,6 +29,7 @@
             <app-dbg-files-section [section]="selectedSection"></app-dbg-files-section>
             <app-dbg-lines-section [section]="selectedSection" [dbgFilesSection]="smxfile.debugFiles"></app-dbg-lines-section>
             <app-dbg-natives-section [section]="selectedSection" [tags]="smxfile.tags"></app-dbg-natives-section>
+            <app-dbg-symbols-section [section]="selectedSection" [subsection]="selectedSubsection" [tags]="smxfile.tags"></app-dbg-symbols-section>
         </div>
     </div>
 </div>

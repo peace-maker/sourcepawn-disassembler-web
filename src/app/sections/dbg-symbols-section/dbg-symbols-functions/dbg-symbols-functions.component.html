@@ -1,0 +1,6 @@
+<h2>Functions with Debug Information</h2>
+<app-section-header [section]="section"></app-section-header>
+
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action" *ngFor="let func of symbols.functions">{{ symbols.renderFunction(func) }}</a>
+</div>
