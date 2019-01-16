@@ -21,6 +21,7 @@ import { DbgFilesSectionComponent } from './sections/dbg-files-section/dbg-files
 import { DbgLinesSectionComponent } from './sections/dbg-lines-section/dbg-lines-section.component';
 import { DbgNativesSectionComponent } from './sections/dbg-natives-section/dbg-natives-section.component';
 import { SymkindAsStringPipe } from './symkind-as-string.pipe';
+import { TagsSectionComponent } from './sections/tags-section/tags-section.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SymkindAsStringPipe } from './symkind-as-string.pipe';
     DbgFilesSectionComponent,
     DbgLinesSectionComponent,
     DbgNativesSectionComponent,
-    SymkindAsStringPipe
+    SymkindAsStringPipe,
+    TagsSectionComponent
   ],
   imports: [
     BrowserModule,
