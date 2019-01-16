@@ -54,6 +54,9 @@ export class SectionsComponent implements OnInit {
         case '.dbg.lines':
           section.bin = this.smxfile.debugLines;
           break;
+        case '.dbg.natives':
+          section.bin = this.smxfile.debugNatives;
+          break;
         case '.dbg.strings':
           section.bin = this.smxfile.debugNames;
           break;

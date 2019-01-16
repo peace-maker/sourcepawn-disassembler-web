@@ -19,6 +19,8 @@ import { PubvarsSectionComponent } from './sections/pubvars-section/pubvars-sect
 import { NativesSectionComponent } from './sections/natives-section/natives-section.component';
 import { DbgFilesSectionComponent } from './sections/dbg-files-section/dbg-files-section.component';
 import { DbgLinesSectionComponent } from './sections/dbg-lines-section/dbg-lines-section.component';
+import { DbgNativesSectionComponent } from './sections/dbg-natives-section/dbg-natives-section.component';
+import { SymkindAsStringPipe } from './symkind-as-string.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { DbgLinesSectionComponent } from './sections/dbg-lines-section/dbg-lines
     PubvarsSectionComponent,
     NativesSectionComponent,
     DbgFilesSectionComponent,
-    DbgLinesSectionComponent
+    DbgLinesSectionComponent,
+    DbgNativesSectionComponent,
+    SymkindAsStringPipe
   ],
   imports: [
     BrowserModule,
