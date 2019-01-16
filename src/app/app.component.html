@@ -19,11 +19,14 @@
                 <input type="file" (change)="fileChangeEvent($event)" placeholder="Select file..." />
             </div>
         </nav>
-        <app-names-section [section]="selectedSection"></app-names-section>
-        <app-data-section [section]="selectedSection"></app-data-section>
-        <app-publics-section [section]="selectedSection"></app-publics-section>
-        <app-pubvars-section [section]="selectedSection"></app-pubvars-section>
-        <app-natives-section [section]="selectedSection"></app-natives-section>
-        <app-dbg-files-section [section]="selectedSection"></app-dbg-files-section>
+        <div *ngIf="smxfile">
+            <app-names-section [section]="selectedSection"></app-names-section>
+            <app-data-section [section]="selectedSection"></app-data-section>
+            <app-publics-section [section]="selectedSection"></app-publics-section>
+            <app-pubvars-section [section]="selectedSection"></app-pubvars-section>
+            <app-natives-section [section]="selectedSection"></app-natives-section>
+            <app-dbg-files-section [section]="selectedSection"></app-dbg-files-section>
+            <app-dbg-lines-section [section]="selectedSection" [dbgFilesSection]="smxfile.debugFiles"></app-dbg-lines-section>
+        </div>
     </div>
 </div>

@@ -18,6 +18,7 @@ import { SectionHeaderComponent } from './sections/section-header/section-header
 import { PubvarsSectionComponent } from './sections/pubvars-section/pubvars-section.component';
 import { NativesSectionComponent } from './sections/natives-section/natives-section.component';
 import { DbgFilesSectionComponent } from './sections/dbg-files-section/dbg-files-section.component';
+import { DbgLinesSectionComponent } from './sections/dbg-lines-section/dbg-lines-section.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DbgFilesSectionComponent } from './sections/dbg-files-section/dbg-files
     SectionHeaderComponent,
     PubvarsSectionComponent,
     NativesSectionComponent,
-    DbgFilesSectionComponent
+    DbgFilesSectionComponent,
+    DbgLinesSectionComponent
   ],
   imports: [
     BrowserModule,
