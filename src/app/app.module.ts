@@ -26,6 +26,7 @@ import { DbgSymbolsSectionComponent } from './sections/dbg-symbols-section/dbg-s
 import { DbgSymbolsGlobalsComponent } from './sections/dbg-symbols-section/dbg-symbols-globals/dbg-symbols-globals.component';
 import { SymScopeAsStringPipe } from './sym-scope-as-string.pipe';
 import { DbgSymbolsFunctionsComponent } from './sections/dbg-symbols-section/dbg-symbols-functions/dbg-symbols-functions.component';
+import { DbgSymbolsDetailComponent } from './sections/dbg-symbols-section/dbg-symbols-detail/dbg-symbols-detail.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { DbgSymbolsFunctionsComponent } from './sections/dbg-symbols-section/dbg
     DbgSymbolsSectionComponent,
     DbgSymbolsGlobalsComponent,
     SymScopeAsStringPipe,
-    DbgSymbolsFunctionsComponent
+    DbgSymbolsFunctionsComponent,
+    DbgSymbolsDetailComponent
   ],
   imports: [
     BrowserModule,

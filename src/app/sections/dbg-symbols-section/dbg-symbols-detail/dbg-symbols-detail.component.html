@@ -1,0 +1,69 @@
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Entry key</th>
+      <th scope="col">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>address</td>
+      <td>0x{{ symbol.address | toHex }}</td>
+    </tr>
+    <tr>
+      <td>tagid</td>
+      <td>0x{{ symbol.tagid | toHex }} <span *ngIf="tags">{{ getTagName(symbol.tagid) }}</span></td>
+    </tr>
+    <tr>
+      <td>codestart</td>
+      <td>0x{{ symbol.codestart | toHex }}</td>
+    </tr>
+    <tr>
+      <td>codeend</td>
+      <td>0x{{ symbol.codeend | toHex }}</td>
+    </tr>
+    <tr>
+      <td>nameoffs</td>
+      <td>0x{{ symbol.nameoffs | toHex }}</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>{{ symbol.name }}</td>
+    </tr>
+    <tr>
+      <td>kind</td>
+      <td>{{ symbol.ident }} ({{ symbol.ident | symKindAsString }})</td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td>{{ symbol.scope }} ({{ symbol.scope | symScopeAsString }})</td>
+    </tr>
+    <tr>
+      <td>dimcount</td>
+      <td>{{ symbol.dimcount }}</td>
+    </tr>
+    <tr *ngFor="let dim of symbol.dims; index as dimIndex">
+      <td>Dimension {{ dimIndex }}</td>
+      <td>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Key</th>
+              <th scope="col">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>tagid</td>
+              <td>0x{{ dim.tagid | toHex }} <span *ngIf="tags">{{ getTagName(dim.tagid) }}</span></td>
+            </tr>
+            <tr>
+              <td>size</td>
+              <td>{{ dim.size }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -30,7 +30,6 @@ a:focus {
     background: #fff;
     border: none;
     border-radius: 0;
-    margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -51,36 +50,39 @@ a:focus {
     SIDEBAR STYLE
 ----------------------------------------------------- */
 
+$sidebar-width: 200px;
+$sidebar-background: #7386D5;
+$sidebar-background-highlight: #6d7fcc;
+
 .wrapper {
     display: flex;
     width: 100%;
 }
 
 #sidebar {
-    width: 250px;
+    width: $sidebar-width;
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
+    background: $sidebar-background;
     color: #fff;
     transition: all 0.3s;
     overflow: auto;
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -$sidebar-width;
 }
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: $sidebar-background-highlight;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul p {
@@ -95,14 +97,14 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: $sidebar-background;
     background: #fff;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: $sidebar-background-highlight;
 }
 
 /*a[data-toggle="collapse"] {
@@ -120,39 +122,19 @@ a[aria-expanded="true"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
-}
-
-ul.CTAs {
-    padding: 20px;
-}
-
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-a.download {
-    background: #fff;
-    color: #7386D5;
-}
-
-a.article,
-a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
+    background: $sidebar-background-highlight;
 }
 
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
 
+$content-padding: 40px;
+
 #content {
-    width: calc(100% - 250px);
-    padding: 40px;
+    width: calc(100% - #{$sidebar-width});
+    padding: $content-padding;
+    padding-top: 0px;
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
@@ -170,7 +152,7 @@ a.article:hover {
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        margin-left: -$sidebar-width;
     }
     #sidebar.active {
         margin-left: 0;
@@ -179,7 +161,7 @@ a.article:hover {
         width: 100%;
     }
     #content.active {
-        width: calc(100% - 250px);
+        width: calc(100% - #{$sidebar-width});
     }
     #sidebarCollapse span {
         display: none;

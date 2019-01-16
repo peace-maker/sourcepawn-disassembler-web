@@ -1,5 +1,4 @@
 <ul class="list-unstyled components" *ngIf="smxfile && smxfile.header">
-  <p>Section list</p>
   <li *ngFor="let section of sectionList()">
     <div *ngIf="section.hasDropdown; then itemWithDropdown; else itemNoDropdown"></div>
     <ng-template #itemWithDropdown>

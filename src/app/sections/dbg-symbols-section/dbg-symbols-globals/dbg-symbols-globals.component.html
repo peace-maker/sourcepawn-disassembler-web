@@ -7,75 +7,7 @@
       <span>{{ symbols.renderVariable(global) }}</span>
     </ng-template>
     <ng-template ngbPanelContent>
-      <table class="table table-sm">
-        <thead>
-          <tr>
-            <th scope="col">Entry key</th>
-            <th scope="col">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>address</td>
-            <td>0x{{ global.address | toHex }}</td>
-          </tr>
-          <tr>
-            <td>tagid</td>
-            <td>0x{{ global.tagid | toHex }} <span *ngIf="tags">{{ getTagName(global.tagid) }}</span></td>
-          </tr>
-          <tr>
-            <td>codestart</td>
-            <td>0x{{ global.codestart | toHex }}</td>
-          </tr>
-          <tr>
-            <td>codeend</td>
-            <td>0x{{ global.codeend | toHex }}</td>
-          </tr>
-          <tr>
-            <td>nameoffs</td>
-            <td>0x{{ global.nameoffs | toHex }}</td>
-          </tr>
-          <tr>
-            <td>name</td>
-            <td>{{ global.name }}</td>
-          </tr>
-          <tr>
-            <td>kind</td>
-            <td>{{ global.ident }} ({{ global.ident | symKindAsString }})</td>
-          </tr>
-          <tr>
-            <td>scope</td>
-            <td>{{ global.scope }} ({{ global.scope | symScopeAsString }})</td>
-          </tr>
-          <tr>
-            <td>dimcount</td>
-            <td>{{ global.dimcount }}</td>
-          </tr>
-          <tr *ngFor="let dim of global.dims; index as dimIndex">
-            <td>Dimension {{ dimIndex }}</td>
-            <td>
-              <table class="table table-sm">
-                <thead>
-                  <tr>
-                    <th scope="col">Key</th>
-                    <th scope="col">Value</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>tagid</td>
-                    <td>0x{{ dim.tagid | toHex }} <span *ngIf="tags">{{ getTagName(dim.tagid) }}</span></td>
-                  </tr>
-                  <tr>
-                    <td>size</td>
-                    <td>{{ dim.size }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <app-dbg-symbols-detail [symbol]="global" [tags]="tags"></app-dbg-symbols-detail>
     </ng-template>
   </ngb-panel>
 </ngb-accordion>

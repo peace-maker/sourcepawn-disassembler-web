@@ -1,0 +1,45 @@
+@import '../../../../styles';
+$inner-sidebar-width: 200px;
+
+#inner-sidebar {
+    width: $inner-sidebar-width;
+    position: absolute;
+    margin-left: -$content-padding;
+    height: 100%;
+    z-index: 999;
+    background: $sidebar-background;
+    color: #fff;
+    transition: all 0.3s;
+    overflow: auto;
+    border-left: 1px dotted #fff;
+}
+
+#inner-sidebar {
+    .sidebar-header {
+        padding: 20px;
+        background: $sidebar-background-highlight;
+    }
+
+    ul.components {
+        padding: 20px 0;
+    }
+
+    ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+    }
+    
+    ul li a:hover {
+        color: $sidebar-background;
+        background: #fff;
+    }
+}
+
+#inner-content {
+    width: calc(100% - #{$inner-sidebar-width});
+    padding: 40px;
+    transition: all 0.3s;
+    position: absolute;
+    right: 0;
+}
