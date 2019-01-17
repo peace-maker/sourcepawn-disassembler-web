@@ -74,15 +74,6 @@ export class SectionsComponent implements OnInit {
           break;
         case '.dbg.info':
           section.bin = this.smxfile.debugInfo;
-          if (section.bin) {
-            const debugInfo = this.smxfile.debugInfo as SmxDebugInfoSection;
-            section.hasDropdown = true;
-            section.dropdown = [];
-            section.dropdown.push('num_files = ' + debugInfo.numFiles.toString());
-            section.dropdown.push('num_lines = ' + debugInfo.numLines.toString());
-            section.dropdown.push('num_symbols = ' + debugInfo.numSymbols.toString());
-            section.dropdown.push('num_arrays = ' + debugInfo.numArrays.toString());
-          }
           break;
         case 'rtti.data':
           section.bin = this.smxfile.rttiData;

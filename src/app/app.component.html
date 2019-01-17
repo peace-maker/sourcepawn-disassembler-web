@@ -29,6 +29,7 @@
                 <app-pubvars-section *ngSwitchCase="'.pubvars'" [section]="selectedSection"></app-pubvars-section>
                 <app-natives-section *ngSwitchCase="'.natives'" [section]="selectedSection"></app-natives-section>
                 <app-tags-section *ngSwitchCase="'.tags'" [section]="selectedSection"></app-tags-section>
+                <app-dbg-info-section *ngSwitchCase="'.dbg.info'" [section]="selectedSection"></app-dbg-info-section>
                 <app-dbg-files-section *ngSwitchCase="'.dbg.files'" [section]="selectedSection"></app-dbg-files-section>
                 <app-dbg-lines-section *ngSwitchCase="'.dbg.lines'" [section]="selectedSection" [dbgFilesSection]="smxfile.debugFiles"></app-dbg-lines-section>
                 <app-dbg-natives-section *ngSwitchCase="'.dbg.natives'" [section]="selectedSection" [tags]="smxfile.tags"></app-dbg-natives-section>
