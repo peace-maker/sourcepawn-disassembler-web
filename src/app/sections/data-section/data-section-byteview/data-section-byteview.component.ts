@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SectionWrapper } from 'src/app/sectionwrapper';
-import { SmxDataSection } from 'sourcepawn-disassembler';
 
 @Component({
   selector: 'app-data-section-byteview',
@@ -9,7 +7,7 @@ import { SmxDataSection } from 'sourcepawn-disassembler';
 })
 export class DataSectionByteviewComponent implements OnInit {
 
-  @Input() section: SectionWrapper;
+  @Input() data: Uint8Array;
   private bytes;
 
   constructor() { }
@@ -23,14 +21,11 @@ export class DataSectionByteviewComponent implements OnInit {
       return this.bytes;
     }
 
-    const dataSection = this.section.bin as SmxDataSection;
-    const reader = new Uint8Array(dataSection.dataReader());
-
     this.bytes = [];
     let row = [];
     let rowStart = 0;
-    for (let i = 0; i < dataSection.dataheader.datasize; i++) {
-      row.push(reader[i]);
+    for (let i = 0; i < this.data.length; i++) {
+      row.push(this.data[i]);
 
       // Split the data into 16 byte chunks.
       if (row.length === 16) {

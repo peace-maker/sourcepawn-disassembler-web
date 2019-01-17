@@ -28,6 +28,7 @@ import { SymScopeAsStringPipe } from './sym-scope-as-string.pipe';
 import { DbgSymbolsFunctionsComponent } from './sections/dbg-symbols-section/dbg-symbols-functions/dbg-symbols-functions.component';
 import { DbgSymbolsDetailComponent } from './sections/dbg-symbols-section/dbg-symbols-detail/dbg-symbols-detail.component';
 import { CodeSectionComponent } from './sections/code-section/code-section.component';
+import { RttiDataSectionComponent } from './sections/rtti-data-section/rtti-data-section.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CodeSectionComponent } from './sections/code-section/code-section.compo
     SymScopeAsStringPipe,
     DbgSymbolsFunctionsComponent,
     DbgSymbolsDetailComponent,
-    CodeSectionComponent
+    CodeSectionComponent,
+    RttiDataSectionComponent
   ],
   imports: [
     BrowserModule,

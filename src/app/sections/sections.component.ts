@@ -84,7 +84,9 @@ export class SectionsComponent implements OnInit {
             section.dropdown.push('num_arrays = ' + debugInfo.numArrays.toString());
           }
           break;
-
+        case 'rtti.data':
+          section.bin = this.smxfile.rttiData;
+          break;
         default:
           break;
       }

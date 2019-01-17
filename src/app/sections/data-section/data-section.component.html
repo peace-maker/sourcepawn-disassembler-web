@@ -11,7 +11,7 @@
 
 <div [ngSwitch]="viewType">
   <div *ngSwitchCase="ViewType.ByteView">
-    <app-data-section-byteview [section]="section"></app-data-section-byteview>
+    <app-data-section-byteview [data]="data"></app-data-section-byteview>
   </div>
   <div *ngSwitchCase="ViewType.CellView">
     <app-data-section-cellview [section]="section"></app-data-section-cellview>

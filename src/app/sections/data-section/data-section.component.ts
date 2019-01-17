@@ -25,6 +25,16 @@ export class DataSectionComponent implements OnInit {
   ngOnInit() {
   }
 
+  get data(): Uint8Array {
+    const dataSection = this.section.bin as SmxDataSection;
+    return new Uint8Array(dataSection.dataReader());
+  }
+
+  get datasize(): number {
+    const dataSection = this.section.bin as SmxDataSection;
+    return dataSection.dataheader.datasize;
+  }
+
   get headers() {
     if (this.extraHeaders) {
       return this.extraHeaders;
