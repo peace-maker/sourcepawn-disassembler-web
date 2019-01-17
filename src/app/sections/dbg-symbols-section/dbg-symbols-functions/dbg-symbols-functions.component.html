@@ -16,15 +16,15 @@
       <h5>Signature: {{ symbols.renderFunction(selectedFunction) }}</h5>
       <app-dbg-symbols-detail [symbol]="selectedFunction" [tags]="tags"></app-dbg-symbols-detail>
 
-      <button type="button" class="btn btn-info" (click)="hideArguments = !hideArguments"
-        [attr.aria-expanded]="!hideArguments" aria-controls="argumentSection">Toggle Arguments</button>
+      <button type="button" class="btn btn-info" (click)="hideArguments = !hideArguments" [attr.aria-expanded]="!hideArguments"
+        aria-controls="argumentSection">Toggle Arguments</button>
       <div id="argumentSection" [ngbCollapse]="hideArguments">
         <div class="card">
           <div class="card-body">
             <ul class="list-group list-group-flush">
               <li class="list-group-item flex-column align-items-start" *ngFor="let arg of symbols.findArguments(selectedFunction); index as argIndex">
-                  <h5 class="mb-1">Argument {{ argIndex }}: {{ symbols.renderVariable(arg) }}</h5>
-                  <app-dbg-symbols-detail [symbol]="arg" [tags]="tags"></app-dbg-symbols-detail>
+                <h5 class="mb-1">Argument {{ argIndex }}: {{ symbols.renderVariable(arg) }}</h5>
+                <app-dbg-symbols-detail [symbol]="arg" [tags]="tags"></app-dbg-symbols-detail>
               </li>
             </ul>
           </div>
@@ -40,11 +40,13 @@
           <div class="card-body">
             <ul class="list-group list-group-flush">
               <li class="list-group-item flex-column align-items-start" *ngFor="let sym of symbols.findLocals(selectedFunction); index as varIndex">
-                  <h5 class="mb-1">Local Variable {{ varIndex }}: {{ symbols.renderVariable(sym) }}</h5>
-                  <app-dbg-symbols-detail [symbol]="sym" [tags]="tags"></app-dbg-symbols-detail>
+                <h5 class="mb-1">Local Variable {{ varIndex }}: {{ symbols.renderVariable(sym) }}</h5>
+                <app-dbg-symbols-detail [symbol]="sym" [tags]="tags"></app-dbg-symbols-detail>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>

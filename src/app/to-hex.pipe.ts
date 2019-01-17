@@ -6,7 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ToHexPipe implements PipeTransform {
 
   transform(value: number): string {
-    return (value < 16 ? '0' : '') + value.toString(16);
+    // Hack to let javascript handle negative number correctly.
+    const hex = (value >>> 0).toString(16);
+    return (hex.length % 2 ? '0' : '') + hex;
   }
 
 }

@@ -1,102 +1,100 @@
-<div *ngIf="section && section.name ==='.dbg.natives'">
-  <h2>{{ section.name }} section</h2>
-  <app-section-header [section]="section"></app-section-header>
+<h2>{{ section.name }} section</h2>
+<app-section-header [section]="section"></app-section-header>
 
-  <ngb-accordion #acc="ngbAccordion">
-    <ngb-panel *ngFor="let native of natives.entries">
-      <ng-template ngbPanelTitle>
-        <span>{{ native.index }}: {{ natives.renderSignature(native.index) }}</span>
-      </ng-template>
-      <ng-template ngbPanelContent>
-        <table class="table table-sm">
-          <thead>
-            <tr>
-              <th scope="col">Entry key</th>
-              <th scope="col">Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>nameoffs</td>
-              <td>0x{{ native.nameoffs | toHex }}</td>
-            </tr>
-            <tr>
-              <td>name</td>
-              <td>{{ native.name }}</td>
-            </tr>
-            <tr>
-              <td>tagid</td>
-              <td>0x{{ native.tagid | toHex }} <span *ngIf="tags">{{ getTagName(native.tagid) }}</span></td>
-            </tr>
-            <tr>
-              <td>index</td>
-              <td>{{ native.index }}</td>
-            </tr>
-            <tr>
-              <td>nargs</td>
-              <td>{{ native.nargs }}</td>
-            </tr>
-            <tr *ngFor="let arg of native.args; index as argIndex">
-              <td>Argument {{ argIndex }}</td>
-              <td>
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th scope="col">Key</th>
-                      <th scope="col">Value</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>nameoffs</td>
-                      <td>0x{{ arg.nameoffs | toHex }}</td>
-                    </tr>
-                    <tr>
-                      <td>name</td>
-                      <td>{{ arg.name }}</td>
-                    </tr>
-                    <tr>
-                      <td>kind</td>
-                      <td>{{ arg.ident }} ({{ arg.ident | symKindAsString }})</td>
-                    </tr>
-                    <tr>
-                      <td>tagid</td>
-                      <td>0x{{ arg.tagid | toHex }} <span *ngIf="tags">{{ getTagName(arg.tagid) }}</span></td>
-                    </tr>
-                    <tr>
-                      <td>dimcount</td>
-                      <td>{{ arg.dimcount }}</td>
-                    </tr>
-                    <tr *ngFor="let dim of arg.dims; index as dimIndex">
-                      <td>Dimension {{ dimIndex }}</td>
-                      <td>
-                        <table class="table table-sm">
-                          <thead>
-                            <tr>
-                              <th scope="col">Key</th>
-                              <th scope="col">Value</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>tagid</td>
-                              <td>0x{{ dim.tagid | toHex }} <span *ngIf="tags">{{ getTagName(dim.tagid) }}</span></td>
-                            </tr>
-                            <tr>
-                              <td>size</td>
-                              <td>{{ dim.size }}</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </ng-template>
-    </ngb-panel>
-  </ngb-accordion>
-</div>
+<ngb-accordion #acc="ngbAccordion">
+  <ngb-panel *ngFor="let native of natives.entries">
+    <ng-template ngbPanelTitle>
+      <span>{{ native.index }}: {{ natives.renderSignature(native.index) }}</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Entry key</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>nameoffs</td>
+            <td>0x{{ native.nameoffs | toHex }}</td>
+          </tr>
+          <tr>
+            <td>name</td>
+            <td>{{ native.name }}</td>
+          </tr>
+          <tr>
+            <td>tagid</td>
+            <td>0x{{ native.tagid | toHex }} <span *ngIf="tags">{{ getTagName(native.tagid) }}</span></td>
+          </tr>
+          <tr>
+            <td>index</td>
+            <td>{{ native.index }}</td>
+          </tr>
+          <tr>
+            <td>nargs</td>
+            <td>{{ native.nargs }}</td>
+          </tr>
+          <tr *ngFor="let arg of native.args; index as argIndex">
+            <td>Argument {{ argIndex }}</td>
+            <td>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">Key</th>
+                    <th scope="col">Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>nameoffs</td>
+                    <td>0x{{ arg.nameoffs | toHex }}</td>
+                  </tr>
+                  <tr>
+                    <td>name</td>
+                    <td>{{ arg.name }}</td>
+                  </tr>
+                  <tr>
+                    <td>kind</td>
+                    <td>{{ arg.ident }} ({{ arg.ident | symKindAsString }})</td>
+                  </tr>
+                  <tr>
+                    <td>tagid</td>
+                    <td>0x{{ arg.tagid | toHex }} <span *ngIf="tags">{{ getTagName(arg.tagid) }}</span></td>
+                  </tr>
+                  <tr>
+                    <td>dimcount</td>
+                    <td>{{ arg.dimcount }}</td>
+                  </tr>
+                  <tr *ngFor="let dim of arg.dims; index as dimIndex">
+                    <td>Dimension {{ dimIndex }}</td>
+                    <td>
+                      <table class="table table-sm">
+                        <thead>
+                          <tr>
+                            <th scope="col">Key</th>
+                            <th scope="col">Value</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>tagid</td>
+                            <td>0x{{ dim.tagid | toHex }} <span *ngIf="tags">{{ getTagName(dim.tagid) }}</span></td>
+                          </tr>
+                          <tr>
+                            <td>size</td>
+                            <td>{{ dim.size }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

@@ -1,20 +1,18 @@
-<div *ngIf="section && section.name ==='.dbg.lines'">
-    <h2>{{ section.name }} section</h2>
-    <app-section-header [section]="section"></app-section-header>
-    <table class="table table-sm">
-      <thead>
-        <tr>
-          <th scope="col">Line</th>
-          <th scope="col">Address</th>
-          <th scope="col">File</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let entry of lines.entries">
-          <td>{{ entry.line }}</td>
-          <td>0x{{ entry.address | toHex }}</td>
-          <td>{{ findFile(entry.address) }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<h2>{{ section.name }} section</h2>
+<app-section-header [section]="section"></app-section-header>
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Line</th>
+      <th scope="col">Address</th>
+      <th scope="col">File</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let entry of lines.entries">
+      <td>{{ entry.line }}</td>
+      <td>0x{{ entry.address | toHex }}</td>
+      <td>{{ findFile(entry.address) }}</td>
+    </tr>
+  </tbody>
+</table>

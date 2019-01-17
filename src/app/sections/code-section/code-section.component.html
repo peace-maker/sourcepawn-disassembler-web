@@ -1,0 +1,54 @@
+<div class="wrapper">
+  <div id="inner-sidebar">
+    <div class="sidebar-header">
+      <h4>Functions</h4>
+    </div>
+    <ul class="list-unstyled components">
+      <li *ngFor="let func of functions">
+        <a href="#" (click)="selectedFunction = func">{{ func.name }}</a>
+      </li>
+    </ul>
+  </div>
+  <div id="inner-content">
+    <h2>Disassembly</h2>
+    <app-section-header [section]="section" [extraHeaders]="headers"></app-section-header>
+    <div *ngIf="selectedFunction">
+      <h5>{{ selectedFunction.name }}</h5>
+      <div class="alert alert-danger" role="alert" *ngIf="disassembleFunction(selectedFunction) == null; else disassembly">
+        Could not disassemble method {{ selectedFunction.name }}: {{ selectedFunction.error }}
+      </div>
+      <ng-template #disassembly>
+        <p>
+          <strong>{{ disassembleFunction(selectedFunction).length }}</strong> instruction(s)<br />
+          Starts at code address 0x{{ selectedFunction.address | toHex}}
+        </p>
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Address</th>
+              <th scope="col">Assembly</th>
+              <th scope="col">Comments</th>
+            </tr>
+          </thead>
+          <tbody class="text-monospace">
+            <tr *ngFor="let ins of disassembleFunction(selectedFunction)">
+              <td>0x{{ ins.address | toHex }}</td>
+              <td>
+                {{ ins.info.name }}
+                <span class="parameter" *ngFor="let param of mergeParameterInfo(ins)">
+                    <ng-container *ngIf="param.type === V1Param.Native; else otherType">{{ param.value }}</ng-container>
+                    <ng-template #otherType>0x{{ param.value | toHex }}</ng-template>
+                  </span>
+              </td>
+              <td>
+                <ng-container *ngFor="let param of mergeParameterInfo(ins)">
+                  <span class="parameter" *ngIf="param.extra">{{ param.extra }}</span>
+                </ng-container>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+    </div>
+  </div>
+</div>

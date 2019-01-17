@@ -1,4 +1,2 @@
-<div *ngIf="section && section.name === '.dbg.symbols'">
-    <app-dbg-symbols-globals [section]="section" [tags]="tags" *ngIf="subsection === 'globals'"></app-dbg-symbols-globals>
-    <app-dbg-symbols-functions [section]="section" [tags]="tags" *ngIf="subsection === 'functions'"></app-dbg-symbols-functions>
-</div>
+<app-dbg-symbols-globals [section]="section" [tags]="tags" *ngIf="subsection === 'globals'"></app-dbg-symbols-globals>
+<app-dbg-symbols-functions [section]="section" [tags]="tags" *ngIf="subsection === 'functions'"></app-dbg-symbols-functions>

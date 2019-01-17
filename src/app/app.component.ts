@@ -52,6 +52,7 @@ export class AppComponent {
           const sp = new SourcePawnFile(reader.result as ArrayBuffer);
           console.log(sp);
           app.smxfile = sp;
+          app.selectedSection = undefined;
         } catch (error) {
           // Keep the old file if the new failed.
           console.log(`Failed to parse file ${files[0].name}`);
