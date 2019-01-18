@@ -32,6 +32,7 @@ import { RttiDataSectionComponent } from './sections/rtti-data-section/rtti-data
 import { DbgInfoSectionComponent } from './sections/dbg-info-section/dbg-info-section.component';
 import { RttiFieldsSectionComponent } from './sections/rtti-fields-section/rtti-fields-section.component';
 import { RttiNativesSectionComponent } from './sections/rtti-natives-section/rtti-natives-section.component';
+import { RttiMethodsSectionComponent } from './sections/rtti-methods-section/rtti-methods-section.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { RttiNativesSectionComponent } from './sections/rtti-natives-section/rtt
     RttiDataSectionComponent,
     DbgInfoSectionComponent,
     RttiFieldsSectionComponent,
-    RttiNativesSectionComponent
+    RttiNativesSectionComponent,
+    RttiMethodsSectionComponent
   ],
   imports: [
     BrowserModule,
