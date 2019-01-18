@@ -78,6 +78,9 @@ export class SectionsComponent implements OnInit {
         case 'rtti.data':
           section.bin = this.smxfile.rttiData;
           break;
+        case 'rtti.fields':
+          section.bin = this.smxfile.rttiFields;
+          break;
         default:
           break;
       }

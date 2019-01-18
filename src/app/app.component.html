@@ -35,6 +35,7 @@
                 <app-dbg-natives-section *ngSwitchCase="'.dbg.natives'" [section]="selectedSection" [tags]="smxfile.tags"></app-dbg-natives-section>
                 <app-dbg-symbols-section *ngSwitchCase="'.dbg.symbols'" [section]="selectedSection" [subsection]="selectedSubsection" [tags]="smxfile.tags"></app-dbg-symbols-section>
                 <app-rtti-data-section *ngSwitchCase="'rtti.data'" [section]="selectedSection"></app-rtti-data-section>
+                <app-rtti-fields-section *ngSwitchCase="'rtti.fields'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-fields-section>
             </div>
         </div>
     </div>

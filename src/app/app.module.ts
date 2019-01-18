@@ -30,6 +30,7 @@ import { DbgSymbolsDetailComponent } from './sections/dbg-symbols-section/dbg-sy
 import { CodeSectionComponent } from './sections/code-section/code-section.component';
 import { RttiDataSectionComponent } from './sections/rtti-data-section/rtti-data-section.component';
 import { DbgInfoSectionComponent } from './sections/dbg-info-section/dbg-info-section.component';
+import { RttiFieldsSectionComponent } from './sections/rtti-fields-section/rtti-fields-section.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { DbgInfoSectionComponent } from './sections/dbg-info-section/dbg-info-se
     DbgSymbolsDetailComponent,
     CodeSectionComponent,
     RttiDataSectionComponent,
-    DbgInfoSectionComponent
+    DbgInfoSectionComponent,
+    RttiFieldsSectionComponent
   ],
   imports: [
     BrowserModule,
