@@ -1,0 +1,22 @@
+<h2>RTTI debug methods indirection table</h2>
+<app-section-header [section]="section"></app-section-header>
+<p>
+  This section is only useful in combination with the <em>rtti.methods</em> and <em>.dbg.locals</em> tables.
+</p>
+
+<table class="table table-sm table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">Method index</th>
+      <th scope="col">First local</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let method of methods; index as i">
+      <th scope="row">{{ i }}</th>
+      <td>{{ method.methodIndex }} {{ getMethod(method.methodIndex) }}</td>
+      <td>{{ method.firstLocal }}</td>
+    </tr>
+  </tbody>
+</table>

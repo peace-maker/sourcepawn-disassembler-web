@@ -38,6 +38,7 @@
                 <app-rtti-fields-section *ngSwitchCase="'rtti.fields'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-fields-section>
                 <app-rtti-natives-section *ngSwitchCase="'rtti.natives'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-natives-section>
                 <app-rtti-methods-section *ngSwitchCase="'rtti.methods'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-methods-section>
+                <app-dbg-methods-section *ngSwitchCase="'.dbg.methods'" [section]="selectedSection" [rttiMethods]="smxfile.rttiMethods"></app-dbg-methods-section>
             </div>
         </div>
     </div>
