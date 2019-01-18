@@ -1,0 +1,27 @@
+<h2>Debug information for global variables</h2>
+<app-section-header [section]="section"></app-section-header>
+
+<table class="table table-sm table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Scope</th>
+      <th scope="col">Address</th>
+      <th scope="col">Code start</th>
+      <th scope="col">Code end</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let global of globals; index as i">
+      <th scope="row">{{ i }}</th>
+      <td><span title="nameoffs: 0x{{ global.nameoffs | toHex }}">{{ global.name }}</span></td>
+      <td><span title="typeid: 0x{{ global.typeid | toHex }}">{{ rttiData.typeFromTypeId(global.typeid) }}</span></td>
+      <td>{{ global.scope }} ({{ global.scope | symScopeAsString }})</td>
+      <td>0x{{ global.address | toHex }}</td>
+      <td>0x{{ global.codestart | toHex }}</td>
+      <td>0x{{ global.codeend | toHex }}</td>
+    </tr>
+  </tbody>
+</table>

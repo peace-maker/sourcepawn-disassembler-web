@@ -90,6 +90,9 @@ export class SectionsComponent implements OnInit {
         case '.dbg.methods':
           section.bin = this.smxfile.debugMethods;
           break;
+        case '.dbg.globals':
+          section.bin = this.smxfile.debugGlobals;
+          break;
         default:
           break;
       }
