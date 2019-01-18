@@ -16,7 +16,7 @@
                     <span>Toggle Sectionlist</span>
                 </button>
                 <h2>{{title}}</h2>
-                <input type="file" (change)="fileChangeEvent($event)" placeholder="Select file..." />
+                <input type="file" accept=".smx" (change)="fileChangeEvent($event)" placeholder="Select file..." />
             </div>
         </nav>
         <div *ngIf="smxfile && selectedSection">
@@ -36,6 +36,7 @@
                 <app-dbg-symbols-section *ngSwitchCase="'.dbg.symbols'" [section]="selectedSection" [subsection]="selectedSubsection" [tags]="smxfile.tags"></app-dbg-symbols-section>
                 <app-rtti-data-section *ngSwitchCase="'rtti.data'" [section]="selectedSection"></app-rtti-data-section>
                 <app-rtti-fields-section *ngSwitchCase="'rtti.fields'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-fields-section>
+                <app-rtti-natives-section *ngSwitchCase="'rtti.natives'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-natives-section>
             </div>
         </div>
     </div>

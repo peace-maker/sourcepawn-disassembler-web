@@ -31,6 +31,7 @@ import { CodeSectionComponent } from './sections/code-section/code-section.compo
 import { RttiDataSectionComponent } from './sections/rtti-data-section/rtti-data-section.component';
 import { DbgInfoSectionComponent } from './sections/dbg-info-section/dbg-info-section.component';
 import { RttiFieldsSectionComponent } from './sections/rtti-fields-section/rtti-fields-section.component';
+import { RttiNativesSectionComponent } from './sections/rtti-natives-section/rtti-natives-section.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { RttiFieldsSectionComponent } from './sections/rtti-fields-section/rtti-
     CodeSectionComponent,
     RttiDataSectionComponent,
     DbgInfoSectionComponent,
-    RttiFieldsSectionComponent
+    RttiFieldsSectionComponent,
+    RttiNativesSectionComponent
   ],
   imports: [
     BrowserModule,
