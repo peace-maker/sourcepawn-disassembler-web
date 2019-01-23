@@ -38,6 +38,7 @@ import { DbgGlobalsSectionComponent } from './sections/dbg-globals-section/dbg-g
 import { RttiClassdefsSectionComponent } from './sections/rtti-classdefs-section/rtti-classdefs-section.component';
 import { DbgLocalsSectionComponent } from './sections/dbg-locals-section/dbg-locals-section.component';
 import { UnknownSectionComponent } from './sections/unknown-section/unknown-section.component';
+import { RttiEnumsSectionComponent } from './sections/rtti-enums-section/rtti-enums-section.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { UnknownSectionComponent } from './sections/unknown-section/unknown-sect
     DbgGlobalsSectionComponent,
     RttiClassdefsSectionComponent,
     DbgLocalsSectionComponent,
-    UnknownSectionComponent
+    UnknownSectionComponent,
+    RttiEnumsSectionComponent
   ],
   imports: [
     BrowserModule,

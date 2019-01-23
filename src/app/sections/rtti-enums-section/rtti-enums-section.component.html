@@ -1,0 +1,23 @@
+<h2>RTTI enum type information</h2>
+<app-section-header [section]="section"></app-section-header>
+
+<table class="table table-sm table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">Name</th>
+      <th scope="col">Reserved 0</th>
+      <th scope="col">Reserved 1</th>
+      <th scope="col">Reserved 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let enumEntry of enums; index as i">
+      <th scope="row">{{ i }}</th>
+      <td><span title="nameoffs: 0x{{ enumEntry.nameoffs | toHex }}">{{ enumEntry.name }}</span></td>
+      <td>0x{{ enumEntry.reserved0 | toHex }}</td>
+      <td>0x{{ enumEntry.reserved1 | toHex }}</td>
+      <td>0x{{ enumEntry.reserved2 | toHex }}</td>
+    </tr>
+  </tbody>
+</table>
