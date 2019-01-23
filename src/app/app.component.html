@@ -42,6 +42,7 @@
                 <app-dbg-methods-section *ngSwitchCase="'.dbg.methods'" [section]="selectedSection" [rttiMethods]="smxfile.rttiMethods"></app-dbg-methods-section>
                 <app-dbg-globals-section *ngSwitchCase="'.dbg.globals'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-dbg-globals-section>
                 <app-dbg-locals-section *ngSwitchCase="'.dbg.locals'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-dbg-locals-section>
+                <app-unknown-section *ngSwitchDefault [section]="selectedSection"></app-unknown-section>
             </div>
         </div>
     </div>
