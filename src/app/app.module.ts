@@ -40,6 +40,7 @@ import { DbgLocalsSectionComponent } from './sections/dbg-locals-section/dbg-loc
 import { UnknownSectionComponent } from './sections/unknown-section/unknown-section.component';
 import { RttiEnumsSectionComponent } from './sections/rtti-enums-section/rtti-enums-section.component';
 import { RttiEnumstructFieldsSectionComponent } from './sections/rtti-enumstruct-fields-section/rtti-enumstruct-fields-section.component';
+import { RttiEnumstructsSectionComponent } from './sections/rtti-enumstructs-section/rtti-enumstructs-section.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { RttiEnumstructFieldsSectionComponent } from './sections/rtti-enumstruct
     DbgLocalsSectionComponent,
     UnknownSectionComponent,
     RttiEnumsSectionComponent,
-    RttiEnumstructFieldsSectionComponent
+    RttiEnumstructFieldsSectionComponent,
+    RttiEnumstructsSectionComponent
   ],
   imports: [
     BrowserModule,

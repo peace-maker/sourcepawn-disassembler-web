@@ -38,6 +38,7 @@
                 <app-rtti-classdefs-section *ngSwitchCase="'rtti.classdefs'" [section]="selectedSection" [smxfile]="smxfile"></app-rtti-classdefs-section>
                 <app-rtti-fields-section *ngSwitchCase="'rtti.fields'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-fields-section>
                 <app-rtti-enums-section *ngSwitchCase="'rtti.enums'" [section]="selectedSection"></app-rtti-enums-section>
+                <app-rtti-enumstructs-section *ngSwitchCase="'rtti.enumstructs'" [section]="selectedSection" [smxfile]="smxfile"></app-rtti-enumstructs-section>
                 <app-rtti-enumstruct-fields-section *ngSwitchCase="'rtti.enumstruct_fields'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-enumstruct-fields-section>
                 <app-rtti-natives-section *ngSwitchCase="'rtti.natives'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-natives-section>
                 <app-rtti-methods-section *ngSwitchCase="'rtti.methods'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-methods-section>

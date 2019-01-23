@@ -1,0 +1,51 @@
+<h2>RTTI enum struct type information</h2>
+<app-section-header [section]="section"></app-section-header>
+
+<ngb-accordion #acc="ngbAccordion">
+  <ngb-panel *ngFor="let enumstruct of enumstructs; index as enumstructIndex">
+    <ng-template ngbPanelTitle>
+      <span>{{ enumstruct.name }}</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <table class="table table-sm table-hover">
+        <tbody>
+          <tr>
+            <th scope="row">Index</th>
+            <td>{{ enumstructIndex }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Name</th>
+            <td><span title="nameoffs: 0x{{ enumstruct.nameoffs | toHex }}">{{ enumstruct.name }}</span></td>
+          </tr>
+          <tr>
+            <th scope="row">First field index</th>
+            <td>{{ enumstruct.firstField }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Size</th>
+            <td>{{ enumstruct.size }} cells</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>Fields</h4>
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Index</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Offset</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let field of getEnumStructFields(enumstructIndex); index as i">
+            <th scope="row">{{ i }}</th>
+            <td><span title="nameoffs: 0x{{ field.nameoffs | toHex }}">{{ field.name }}</span></td>
+            <td><span title="typeid: 0x{{ field.typeid | toHex }}">{{ rttiData.typeFromTypeId(field.typeid) }}</span></td>
+            <td>0x{{ field.offset | toHex }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

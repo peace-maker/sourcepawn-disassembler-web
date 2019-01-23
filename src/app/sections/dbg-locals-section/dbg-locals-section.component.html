@@ -2,26 +2,26 @@
 <app-section-header [section]="section"></app-section-header>
 
 <table class="table table-sm table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Index</th>
-        <th scope="col">Name</th>
-        <th scope="col">Type</th>
-        <th scope="col">Scope</th>
-        <th scope="col">Address</th>
-        <th scope="col">Code start</th>
-        <th scope="col">Code end</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let local of locals; index as i">
-        <th scope="row">{{ i }}</th>
-        <td><span title="nameoffs: 0x{{ local.nameoffs | toHex }}">{{ local.name }}</span></td>
-        <td><span title="typeid: 0x{{ local.typeid | toHex }}">{{ rttiData.typeFromTypeId(local.typeid) }}</span></td>
-        <td>{{ local.scope }} ({{ local.scope | symScopeAsString }})</td>
-        <td>0x{{ local.address | toHex }}</td>
-        <td>0x{{ local.codestart | toHex }}</td>
-        <td>0x{{ local.codeend | toHex }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Scope</th>
+      <th scope="col">Address</th>
+      <th scope="col">Code start</th>
+      <th scope="col">Code end</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let local of locals; index as i">
+      <th scope="row">{{ i }}</th>
+      <td><span title="nameoffs: 0x{{ local.nameoffs | toHex }}">{{ local.name }}</span></td>
+      <td><span title="typeid: 0x{{ local.typeid | toHex }}">{{ rttiData.typeFromTypeId(local.typeid) }}</span></td>
+      <td>{{ local.scope }} ({{ local.scope | symScopeAsString }})</td>
+      <td>0x{{ local.address | toHex }}</td>
+      <td>0x{{ local.codestart | toHex }}</td>
+      <td>0x{{ local.codeend | toHex }}</td>
+    </tr>
+  </tbody>
+</table>
