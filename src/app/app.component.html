@@ -41,6 +41,7 @@
                 <app-rtti-methods-section *ngSwitchCase="'rtti.methods'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-methods-section>
                 <app-dbg-methods-section *ngSwitchCase="'.dbg.methods'" [section]="selectedSection" [rttiMethods]="smxfile.rttiMethods"></app-dbg-methods-section>
                 <app-dbg-globals-section *ngSwitchCase="'.dbg.globals'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-dbg-globals-section>
+                <app-dbg-locals-section *ngSwitchCase="'.dbg.locals'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-dbg-locals-section>
             </div>
         </div>
     </div>
