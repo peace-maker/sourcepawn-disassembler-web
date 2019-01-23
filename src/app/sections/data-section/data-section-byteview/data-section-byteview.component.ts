@@ -17,7 +17,7 @@ export class DataSectionByteviewComponent implements OnInit {
 
   public getBytes() {
     // Only compute this view once.
-    if (this.bytes !== undefined) {
+    if (this.bytes) {
       return this.bytes;
     }
 

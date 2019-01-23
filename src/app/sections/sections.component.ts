@@ -23,6 +23,12 @@ export class SectionsComponent implements OnInit {
     }
 
     const sections = [];
+    // Add basic .smx header.
+    const headerSection = new SectionWrapper();
+    headerSection.name = '(header)';
+    headerSection.hasDropdown = false;
+    sections.push(headerSection);
+
     for (const meta of this.smxfile.header.sections) {
       const section = new SectionWrapper();
       section.header = meta;

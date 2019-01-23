@@ -43,6 +43,8 @@ import { RttiEnumstructFieldsSectionComponent } from './sections/rtti-enumstruct
 import { RttiEnumstructsSectionComponent } from './sections/rtti-enumstructs-section/rtti-enumstructs-section.component';
 import { RttiTypedefsSectionComponent } from './sections/rtti-typedefs-section/rtti-typedefs-section.component';
 import { RttiTypesetsSectionComponent } from './sections/rtti-typesets-section/rtti-typesets-section.component';
+import { FileHeaderComponent } from './sections/file-header/file-header.component';
+import { CompressionTypeAsStringPipe } from './compression-type-as-string.pipe';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,9 @@ import { RttiTypesetsSectionComponent } from './sections/rtti-typesets-section/r
     RttiEnumstructFieldsSectionComponent,
     RttiEnumstructsSectionComponent,
     RttiTypedefsSectionComponent,
-    RttiTypesetsSectionComponent
+    RttiTypesetsSectionComponent,
+    FileHeaderComponent,
+    CompressionTypeAsStringPipe
   ],
   imports: [
     BrowserModule,

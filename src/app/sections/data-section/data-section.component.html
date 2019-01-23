@@ -9,14 +9,14 @@
     Analysis</button>
 </div>
 
-<div [ngSwitch]="viewType">
-  <div *ngSwitchCase="ViewType.ByteView">
+<ng-container [ngSwitch]="viewType">
+  <ng-container *ngSwitchCase="ViewType.ByteView">
     <app-data-section-byteview [data]="data"></app-data-section-byteview>
-  </div>
-  <div *ngSwitchCase="ViewType.CellView">
+  </ng-container>
+  <ng-container *ngSwitchCase="ViewType.CellView">
     <app-data-section-cellview [section]="section"></app-data-section-cellview>
-  </div>
-  <div *ngSwitchCase="ViewType.StringAnalysis">
+  </ng-container>
+  <ng-container *ngSwitchCase="ViewType.StringAnalysis">
     <app-data-section-stringanalysis [section]="section"></app-data-section-stringanalysis>
-  </div>
-</div>
+  </ng-container>
+</ng-container>

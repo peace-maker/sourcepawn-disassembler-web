@@ -21,6 +21,7 @@
         </nav>
         <div *ngIf="smxfile && selectedSection">
             <div [ngSwitch]="selectedSection.name">
+                <app-file-header *ngSwitchCase="'(header)'" [smxfile]="smxfile"></app-file-header>
                 <app-names-section *ngSwitchCase="'.names'" [section]="selectedSection"></app-names-section>
                 <app-names-section *ngSwitchCase="'.dbg.strings'" [section]="selectedSection"></app-names-section>
                 <app-data-section *ngSwitchCase="'.data'" [section]="selectedSection"></app-data-section>

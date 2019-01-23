@@ -1,0 +1,37 @@
+<h2>.smx file header</h2>
+<table class="table table-sm table-hover">
+  <tbody>
+    <tr>
+      <th scope="row">Magic</th>
+      <td>0x{{ header.magic | toHex }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Version</th>
+      <td>0x{{ header.version | toHex }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Compression</th>
+      <td>0x{{ header.compression | toHex }} ({{ header.compression | compressionTypeAsString }})</td>
+    </tr>
+    <tr>
+      <th scope="row">Disk size</th>
+      <td>{{ header.disksize }} bytes</td>
+    </tr>
+    <tr>
+      <th scope="row">Image size</th>
+      <td>{{ header.imagesize }} bytes</td>
+    </tr>
+    <tr>
+      <th scope="row">Number of sections</th>
+      <td>{{ header.numSections }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Offset to string table</th>
+      <td>{{ header.stringtab }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Offset to compressed data</th>
+      <td>{{ header.dataoffs }}</td>
+    </tr>
+  </tbody>
+</table>
