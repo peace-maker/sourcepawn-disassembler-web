@@ -1,0 +1,47 @@
+<h2>RTTI class and struct definitions</h2>
+<app-section-header [section]="section"></app-section-header>
+<p>
+  As of now, there are no flags defined and the four reserved values in the struct are unused.<br />
+  The index of the first field points to the <em>rtti.fields</em> section table.
+</p>
+
+<ngb-accordion #acc="ngbAccordion">
+  <ngb-panel *ngFor="let classdef of classdefs; index as classIndex">
+    <ng-template ngbPanelTitle>
+      <span>{{ classdef.name }}</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <table class="table table-sm table-hover">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Flags</th>
+          <th scope="col">First Field Index</th>
+          <th scope="col">Reserved 0</th>
+          <th scope="col">Reserved 1</th>
+          <th scope="col">Reserved 2</th>
+          <th scope="col">Reserved 3</th>
+        </tr>
+        <tr>
+          <td><span title="nameoffs: 0x{{ classdef.nameoffs | toHex }}">{{ classdef.name }}</span></td>
+          <td>0x{{ classdef.flags | toHex }}</td>
+          <td>{{ classdef.firstField }}</td>
+          <td>0x{{ classdef.reserved0 | toHex }}</td>
+          <td>0x{{ classdef.reserved1 | toHex }}</td>
+          <td>0x{{ classdef.reserved2 | toHex }}</td>
+          <td>0x{{ classdef.reserved3 | toHex }}</td>
+        </tr>
+      </table>
+      <h4>Fields</h4>
+      <table class="table table-sm table-hover">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+        </tr>
+        <tr *ngFor="let field of getClassFields(classIndex)">
+          <td><span title="nameoffs: 0x{{ field.nameoffs | toHex }}">{{ field.name }}</span></td>
+          <td><span title="typeid: 0x{{ field.typeid | toHex }}">{{ rttiData.typeFromTypeId(field.typeid) }}</span></td>
+        </tr>
+      </table>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

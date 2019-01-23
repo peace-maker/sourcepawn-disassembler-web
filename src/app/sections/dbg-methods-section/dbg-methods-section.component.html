@@ -2,6 +2,9 @@
 <app-section-header [section]="section"></app-section-header>
 <p>
   This section is only useful in combination with the <em>rtti.methods</em> and <em>.dbg.locals</em> tables.
+  It serves as a mapping between the methods and their list of local variables.<br />
+  The method index links to the method in the <em>rtti.methods</em> section table
+  and the first local index says where the list of local variables starts in the <em>.dbg.locals</em> debug section table.
 </p>
 
 <table class="table table-sm table-hover">
@@ -9,7 +12,7 @@
     <tr>
       <th scope="col">Index</th>
       <th scope="col">Method index</th>
-      <th scope="col">First local</th>
+      <th scope="col">First local index</th>
     </tr>
   </thead>
   <tbody>
