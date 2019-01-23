@@ -42,6 +42,7 @@ import { RttiEnumsSectionComponent } from './sections/rtti-enums-section/rtti-en
 import { RttiEnumstructFieldsSectionComponent } from './sections/rtti-enumstruct-fields-section/rtti-enumstruct-fields-section.component';
 import { RttiEnumstructsSectionComponent } from './sections/rtti-enumstructs-section/rtti-enumstructs-section.component';
 import { RttiTypedefsSectionComponent } from './sections/rtti-typedefs-section/rtti-typedefs-section.component';
+import { RttiTypesetsSectionComponent } from './sections/rtti-typesets-section/rtti-typesets-section.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { RttiTypedefsSectionComponent } from './sections/rtti-typedefs-section/r
     RttiEnumsSectionComponent,
     RttiEnumstructFieldsSectionComponent,
     RttiEnumstructsSectionComponent,
-    RttiTypedefsSectionComponent
+    RttiTypedefsSectionComponent,
+    RttiTypesetsSectionComponent
   ],
   imports: [
     BrowserModule,
