@@ -39,6 +39,7 @@ import { RttiClassdefsSectionComponent } from './sections/rtti-classdefs-section
 import { DbgLocalsSectionComponent } from './sections/dbg-locals-section/dbg-locals-section.component';
 import { UnknownSectionComponent } from './sections/unknown-section/unknown-section.component';
 import { RttiEnumsSectionComponent } from './sections/rtti-enums-section/rtti-enums-section.component';
+import { RttiEnumstructFieldsSectionComponent } from './sections/rtti-enumstruct-fields-section/rtti-enumstruct-fields-section.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { RttiEnumsSectionComponent } from './sections/rtti-enums-section/rtti-en
     RttiClassdefsSectionComponent,
     DbgLocalsSectionComponent,
     UnknownSectionComponent,
-    RttiEnumsSectionComponent
+    RttiEnumsSectionComponent,
+    RttiEnumstructFieldsSectionComponent
   ],
   imports: [
     BrowserModule,

@@ -87,6 +87,9 @@ export class SectionsComponent implements OnInit {
         case 'rtti.enums':
           section.bin = this.smxfile.rttiEnums;
           break;
+        case 'rtti.enumstruct_fields':
+          section.bin = this.smxfile.rttiEnumStructFields;
+          break;
         case 'rtti.natives':
           section.bin = this.smxfile.rttiNatives;
           break;

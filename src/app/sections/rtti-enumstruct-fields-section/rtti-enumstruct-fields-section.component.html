@@ -1,0 +1,24 @@
+<h2>RTTI enum struct field type information</h2>
+<app-section-header [section]="section"></app-section-header>
+<p>
+  A list of all enum struct fields of all enum structs in the <em>rtti.enumstructs</em> table.
+</p>
+
+<table class="table table-sm table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Offset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let field of fields; index as i">
+      <th scope="row">{{ i }}</th>
+      <td><span title="nameoffs: 0x{{ field.nameoffs | toHex }}">{{ field.name }}</span></td>
+      <td><span title="typeid: 0x{{ field.typeid | toHex }}">{{ rttiData.typeFromTypeId(field.typeid) }}</span></td>
+      <td>0x{{ field.offset | toHex }}</td>
+    </tr>
+  </tbody>
+</table>
