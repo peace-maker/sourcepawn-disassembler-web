@@ -1,0 +1,19 @@
+<h2>RTTI typedef information</h2>
+<app-section-header [section]="section"></app-section-header>
+
+<table class="table table-sm table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let typed of typedefs; index as i">
+      <th scope="row">{{ i }}</th>
+      <td><span title="nameoffs: 0x{{ typed.nameoffs | toHex }}">{{ typed.name }}</span></td>
+      <td><span title="typeid: 0x{{ typed.typeid | toHex }}">{{ rttiData.typeFromTypeId(typed.typeid) }}</span></td>
+    </tr>
+  </tbody>
+</table>

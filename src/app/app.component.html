@@ -42,6 +42,7 @@
                 <app-rtti-enumstruct-fields-section *ngSwitchCase="'rtti.enumstruct_fields'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-enumstruct-fields-section>
                 <app-rtti-natives-section *ngSwitchCase="'rtti.natives'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-natives-section>
                 <app-rtti-methods-section *ngSwitchCase="'rtti.methods'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-methods-section>
+                <app-rtti-typedefs-section *ngSwitchCase="'rtti.typedefs'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-rtti-typedefs-section>
                 <app-dbg-methods-section *ngSwitchCase="'.dbg.methods'" [section]="selectedSection" [rttiMethods]="smxfile.rttiMethods"></app-dbg-methods-section>
                 <app-dbg-globals-section *ngSwitchCase="'.dbg.globals'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-dbg-globals-section>
                 <app-dbg-locals-section *ngSwitchCase="'.dbg.locals'" [section]="selectedSection" [rttiData]="smxfile.rttiData"></app-dbg-locals-section>

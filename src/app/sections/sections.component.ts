@@ -99,6 +99,9 @@ export class SectionsComponent implements OnInit {
         case 'rtti.methods':
           section.bin = this.smxfile.rttiMethods;
           break;
+        case 'rtti.typedefs':
+          section.bin = this.smxfile.rttiTypedefs;
+          break;
         case '.dbg.methods':
           section.bin = this.smxfile.debugMethods;
           break;
