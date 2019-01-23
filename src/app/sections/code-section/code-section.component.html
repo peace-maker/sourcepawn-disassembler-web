@@ -36,9 +36,12 @@
               <td>
                 {{ ins.info.name }}
                 <span class="parameter" *ngFor="let param of mergeParameterInfo(ins)">
-                    <ng-container *ngIf="param.type === V1Param.Native; else otherType">{{ param.value }}</ng-container>
-                    <ng-template #otherType>0x{{ param.value | toHex }}</ng-template>
-                  </span>
+                  <ng-container [ngSwitch]="param.type">
+                    <ng-container *ngSwitchCase="V1Param.Native">{{ param.value }}</ng-container>
+                    <ng-container *ngSwitchCase="V1Param.Function"><a href="#" (click)="selectFunction(param.value)">0x{{ param.value | toHex }}</a></ng-container>
+                    <ng-container *ngSwitchDefault>0x{{ param.value | toHex }}</ng-container>
+                  </ng-container>
+                </span>
               </td>
               <td>
                 <ng-container *ngFor="let param of mergeParameterInfo(ins)">

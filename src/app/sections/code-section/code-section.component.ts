@@ -25,6 +25,7 @@ export class CodeSectionComponent implements OnInit {
   @Input() smxfile: SourcePawnFile;
   @Input() section: SectionWrapper;
   selectedFunction: AvailableFunction;
+  private functionMap: Map<number, AvailableFunction>;
   private functionList: AvailableFunction[];
   private extraHeaders: any[];
   V1Param = V1Param;
@@ -102,6 +103,13 @@ export class CodeSectionComponent implements OnInit {
     return params;
   }
 
+  public selectFunction(address: number): void {
+    if (!this.functionMap.has(address)) {
+      return;
+    }
+    this.selectedFunction = this.functionMap.get(address);
+  }
+
   get functions(): AvailableFunction[] {
     if (this.functionList) {
       return this.functionList;
@@ -131,6 +139,7 @@ export class CodeSectionComponent implements OnInit {
       }
     }
 
+    this.functionMap = functions;
     this.functionList = Array.from(functions.values());
     return this.functionList;
   }
