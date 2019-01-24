@@ -55,7 +55,7 @@ export class AppComponent {
           app.selectedSection = undefined;
         } catch (error) {
           // Keep the old file if the new failed.
-          console.log(`Failed to parse file ${files[0].name}`);
+          console.log(`Failed to parse file ${files[0].name}: ${error.message}`);
           // console.log(error);
         }
       };
