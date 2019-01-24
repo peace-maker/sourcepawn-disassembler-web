@@ -53,6 +53,7 @@ a:focus {
 $sidebar-width: 200px;
 $sidebar-background: #7386D5;
 $sidebar-background-highlight: #6d7fcc;
+$text-color: #fff;
 
 .wrapper {
     display: flex;
@@ -67,7 +68,7 @@ $sidebar-background-highlight: #6d7fcc;
     height: 100vh;
     z-index: 999;
     background: $sidebar-background;
-    color: #fff;
+    color: $text-color;
     transition: all 0.3s;
     overflow: auto;
 }
@@ -86,7 +87,7 @@ $sidebar-background-highlight: #6d7fcc;
 }
 
 #sidebar ul p {
-    color: #fff;
+    color: $text-color;
     padding: 10px;
 }
 
@@ -98,12 +99,12 @@ $sidebar-background-highlight: #6d7fcc;
 
 #sidebar ul li a:hover {
     color: $sidebar-background;
-    background: #fff;
+    background: $text-color;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
+    color: $text-color;
     background: $sidebar-background-highlight;
 }
 
