@@ -23,7 +23,7 @@
         </tr>
         <tr>
           <td><span title="nameoffs: 0x{{ classdef.nameoffs | toHex }}">{{ classdef.name }}</span></td>
-          <td>0x{{ classdef.flags | toHex }}</td>
+          <td>0x{{ classdef.flags | toHex }} ({{ classdef.flags | classdefFlagsAsString }})</td>
           <td>{{ classdef.firstField }}</td>
           <td>0x{{ classdef.reserved0 | toHex }}</td>
           <td>0x{{ classdef.reserved1 | toHex }}</td>
