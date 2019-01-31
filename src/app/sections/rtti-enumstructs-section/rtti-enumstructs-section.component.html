@@ -47,6 +47,22 @@
           </tr>
         </tbody>
       </table>
+
+      <h4>Methods</h4>
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Signature</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let method of getEnumStructMethods(enumstructIndex)">
+            <td><span title="nameoffs: 0x{{ method.nameoffs | toHex }}">{{ method.name | slice : enumstruct.name.length + 2 }}</span></td>
+            <td><span title="signature: 0x{{ method.signature | toHex }}">{{ rttiData.functionTypeFromOffset(method.signature) }}</span></td>
+          </tr>
+        </tbody>
+      </table>
     </ng-template>
   </ngb-panel>
 </ngb-accordion>

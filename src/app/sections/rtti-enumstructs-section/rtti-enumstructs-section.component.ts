@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SmxRttiDataSection, SmxRttiEnumStructTable, SourcePawnFile } from 'sourcepawn-disassembler';
 import { SectionWrapper } from 'src/app/sectionwrapper';
-import { RttiEnumStructEntry, RttiEnumStructFieldEntry } from 'sourcepawn-disassembler/lib/types';
+import { RttiEnumStructEntry, RttiEnumStructFieldEntry, RttiMethodEntry } from 'sourcepawn-disassembler/lib/types';
 
 @Component({
   selector: 'app-rtti-enumstructs-section',
@@ -28,5 +28,28 @@ export class RttiEnumstructsSectionComponent implements OnInit {
 
   public getEnumStructFields(index: number): RttiEnumStructFieldEntry[] {
     return this.smxfile.getFieldsOfEnumStruct(index);
+  }
+
+  public getEnumStructMethods(index: number): RttiMethodEntry[] {
+    if (!this.smxfile.rttiMethods) {
+      return [];
+    }
+
+    const rttiEnumStructs = <SmxRttiEnumStructTable>this.section.bin;
+    if (index < 0 || index >= rttiEnumStructs.rowcount) {
+      return [];
+    }
+
+    // Find all methods starting with the name of this enum struct
+    // <enum struct name>::<method name>
+    const enumStructEntry = rttiEnumStructs.entries[index];
+    const needle = enumStructEntry.name + '::';
+    const methods = [];
+    for (const method of this.smxfile.rttiMethods.methods) {
+      if (method.name.startsWith(needle)) {
+        methods.push(method);
+      }
+    }
+    return methods;
   }
 }
