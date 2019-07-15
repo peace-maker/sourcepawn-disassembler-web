@@ -4,7 +4,8 @@
   This section is only useful in combination with the <em>rtti.methods</em> and <em>.dbg.locals</em> tables.
   It serves as a mapping between the methods and their list of local variables.<br />
   The method index links to the method in the <em>rtti.methods</em> section table
-  and the first local index says where the list of local variables starts in the <em>.dbg.locals</em> debug section table.
+  and the first local index says where the list of local variables starts in the <em>.dbg.locals</em> debug section
+  table.
 </p>
 
 <table class="table table-sm table-hover">
@@ -15,11 +16,79 @@
       <th scope="col">First local index</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let method of methods; index as i">
-      <th scope="row">{{ i }}</th>
-      <td>{{ method.methodIndex }} {{ getMethod(method.methodIndex) }}</td>
-      <td>{{ method.firstLocal }}</td>
+  <tbody *ngFor="let method of methods; index as methodIndex">
+    <tr (click)="toggleMethod(methodIndex)" class="cursor-pointer">
+      <th scope="row" class="cursor-pointer">{{ methodIndex }}</th>
+      <td class="cursor-pointer">{{ method.methodIndex }} {{ getMethodName(method.methodIndex) }}</td>
+      <td class="cursor-pointer">{{ method.firstLocal }}</td>
+    </tr>
+    <tr id="method_details_{{ methodIndex }}" [ngbCollapse]="isMethodHidden(methodIndex)">
+      <td colspan="3">
+        <div class="card">
+          <div class="card-body">
+            <span *ngIf="getMethod(method.methodIndex)">
+              <h3>Method {{ getMethod(method.methodIndex).name }}</h3>
+              {{ rttiData.functionTypeFromOffset(getMethod(method.methodIndex).signature) }}
+            </span>
+
+            <ng-container *ngIf="getMethodArguments(methodIndex).length > 0">
+              <h4>Arguments</h4>
+              <table class="table table-sm table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Index</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Scope</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Code start</th>
+                    <th scope="col">Code end</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let local of getMethodArguments(methodIndex); index as localIndex">
+                    <th scope="row">{{ localIndex }}</th>
+                    <td><span title="nameoffs: 0x{{ local.nameoffs | toHex }}">{{ local.name }}</span></td>
+                    <td><span title="typeid: 0x{{ local.typeid | toHex }}">{{ rttiData.typeFromTypeId(local.typeid) }}</span></td>
+                    <td>{{ local.scope }} ({{ local.scope | symScopeAsString }})</td>
+                    <td>0x{{ local.address | toHex }}</td>
+                    <td>0x{{ local.codestart | toHex }}</td>
+                    <td>0x{{ local.codeend | toHex }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </ng-container>
+
+            <ng-container *ngIf="getMethodLocals(methodIndex).length > 0">
+              <h4>Local Variable</h4>
+              <table class="table table-sm table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Index</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Scope</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Code start</th>
+                    <th scope="col">Code end</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let local of getMethodLocals(methodIndex); index as localIndex">
+                    <th scope="row">{{ localIndex }}</th>
+                    <td><span title="nameoffs: 0x{{ local.nameoffs | toHex }}">{{ local.name }}</span></td>
+                    <td><span title="typeid: 0x{{ local.typeid | toHex }}">{{ rttiData.typeFromTypeId(local.typeid) }}</span></td>
+                    <td>{{ local.scope }} ({{ local.scope | symScopeAsString }})</td>
+                    <td>0x{{ local.address | toHex }}</td>
+                    <td>0x{{ local.codestart | toHex }}</td>
+                    <td>0x{{ local.codeend | toHex }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </ng-container>
+          </div>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>
