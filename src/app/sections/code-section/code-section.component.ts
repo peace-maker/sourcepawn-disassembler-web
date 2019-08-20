@@ -60,7 +60,6 @@ export class CodeSectionComponent implements OnInit {
       const param = new PrintableParameter(ins.info.params[i], ins.params[i]);
       switch (param.type) {
         case V1Param.Constant:
-        case V1Param.CaseTable:
           param.extra = param.value;
           break;
         case V1Param.Native:
