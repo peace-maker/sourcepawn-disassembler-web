@@ -14,10 +14,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let local of locals; index as i">
+    <tr *ngFor="let local of locals.entries; index as i">
       <th scope="row">{{ i }}</th>
       <td><span title="nameoffs: 0x{{ local.nameoffs | toHex }}">{{ local.name }}</span></td>
-      <td><span title="typeid: 0x{{ local.typeid | toHex }}">{{ rttiData.typeFromTypeId(local.typeid) }}</span></td>
+      <td><span title="typeid: 0x{{ local.typeid | toHex }}">{{ locals.renderDeclaration(local) }}</span></td>
       <td>{{ local.scope }} ({{ local.scope | symScopeAsString }})</td>
       <td>0x{{ local.address | toHex }}</td>
       <td>0x{{ local.codestart | toHex }}</td>

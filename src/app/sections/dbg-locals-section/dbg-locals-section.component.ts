@@ -11,14 +11,13 @@ import { SmxDebugLocalsTable, SmxRttiDataSection } from 'sourcepawn-disassembler
 export class DbgLocalsSectionComponent implements OnInit {
 
   @Input() section: SectionWrapper;
-  @Input() rttiData: SmxRttiDataSection;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  get locals(): DebugVarEntry[] {
-    return (<SmxDebugLocalsTable>this.section.bin).entries;
+  get locals(): SmxDebugLocalsTable {
+    return <SmxDebugLocalsTable>this.section.bin;
   }
 }
