@@ -18,7 +18,7 @@
           Signature: 0x{{ typeset.signature | toHex }}
         </p>
         <ul class="list-group">
-          <li class="list-group-item" *ngFor="let typesetItem of rttiData.typesetTypesFromOffset(typeset.signature)">{{ typesetItem }}</li>
+          <li class="list-group-item" *ngFor="let typesetItem of rttiData.typesetTypesFromOffset(typeset.signature).signatures">{{ typesetItem }}</li>
         </ul>
       </td>
     </tr>
