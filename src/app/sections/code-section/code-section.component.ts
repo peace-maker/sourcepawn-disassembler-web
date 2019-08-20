@@ -11,7 +11,7 @@ export class AvailableFunction {
 }
 
 export class PrintableParameter {
-  public extra: any;
+  public extra: any = null;
   constructor(public type: V1Param, public value: number) { }
 }
 

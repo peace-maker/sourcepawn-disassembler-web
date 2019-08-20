@@ -45,7 +45,7 @@
               </td>
               <td>
                 <ng-container *ngFor="let param of mergeParameterInfo(ins)">
-                  <span class="parameter" *ngIf="param.extra">{{ param.extra }}</span>
+                  <span class="parameter" *ngIf="param.extra !== null">{{ param.extra }}</span>
                 </ng-container>
               </td>
             </tr>
