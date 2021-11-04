@@ -153,18 +153,28 @@ export class CodeSectionComponent {
       this.extraHeaders.push({ 'key': 'codesize', 'value': codeSection.codeheader.codesize + ' bytes' });
       this.extraHeaders.push({ 'key': 'cellsize', 'value': codeSection.codeheader.cellsize + ' bytes' });
       this.extraHeaders.push({ 'key': 'codeversion', 'value': '0x' + codeSection.codeheader.codeversion.toString(16) });
+      const flagList = [];
+      if (codeSection.codeheader.flags & CodeV1Flags.Debug) {
+        flagList.push('Debug');
+      }
+      const flags = ' (' + flagList.join(', ') + ')';
       this.extraHeaders.push({
         'key': 'flags',
-        'value': '0x' + codeSection.codeheader.flags.toString(16) +
-          ' (' + CodeV1Flags[codeSection.codeheader.flags].toString() + ')'
+        'value': '0x' + codeSection.codeheader.flags.toString(16) + flags
       });
       this.extraHeaders.push({ 'key': 'main', 'value': '0x' + codeSection.codeheader.main.toString(16) });
       this.extraHeaders.push({ 'key': 'codeoffs', 'value': '0x' + codeSection.codeheader.codeoffs.toString(16) });
       if (codeSection.codeheader.codeversion >= CodeV1Header.VERSION_FEATURES) {
         // Translate feature bitset to readable string.
         const featureList = [];
+        if (codeSection.codeheader.features & CodeV1Features.Deprecated0) {
+          featureList.push('Deprecated0');
+        }
         if (codeSection.codeheader.features & CodeV1Features.DirectArrays) {
           featureList.push('DirectArrays');
+        }
+        if (codeSection.codeheader.features & CodeV1Features.HeapScopes) {
+          featureList.push('HeapScopes');
         }
         const features = ' (' + featureList.join(', ') + ')';
         this.extraHeaders.push({ 'key': 'features', 'value': '0x' + codeSection.codeheader.features.toString(16) + features });
