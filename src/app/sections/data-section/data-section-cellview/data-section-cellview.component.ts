@@ -24,6 +24,22 @@ export class DataSectionCellviewComponent {
     const reader = new Uint32Array(dataSection.dataReader());
 
     this.cells = [];
+    let row = [];
+    let rowStart = 0;
+    for (let i = 0; i < reader.length; i++) {
+      row.push(reader[i]);
+
+      // Split the data into 8 chunks.
+      if (row.length === 8) {
+        this.cells.push({'offset': rowStart, 'cells': row});
+        row = [];
+        rowStart += 8 * 4;
+      }
+    }
+    // Add the rest of the bytes.
+    if (row.length > 0) {
+      this.cells.push({'offset': rowStart, 'cells': row });
+    }
 
     return this.cells;
   }

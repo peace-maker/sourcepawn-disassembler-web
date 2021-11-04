@@ -1,3 +1,18 @@
-<p>
-  data-section-cellview works!
-</p>
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Offset</th>
+      <th scope="col">Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of getCells()" class="text-monospace">
+      <th scope="row">0x{{ row.offset.toString(16) }}</th>
+      <td class="hexdigits">
+        <span *ngFor="let col of row.cells">
+          {{ col | toHex:4 }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
