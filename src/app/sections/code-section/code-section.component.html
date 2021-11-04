@@ -26,6 +26,7 @@
           <thead>
             <tr>
               <th scope="col">Address</th>
+              <th scope="col">Bytes</th>
               <th scope="col">Assembly</th>
               <th scope="col">Comments</th>
             </tr>
@@ -33,6 +34,11 @@
           <tbody class="text-monospace">
             <tr *ngFor="let ins of disassembleFunction(selectedFunction)">
               <td>0x{{ ins.address | toHex }}</td>
+              <td>
+                <div class="overflow-auto bytes-column">
+                  {{ ins.bytes | toHexString }}
+                </div>
+              </td>
               <td>
                 {{ ins.info.name }}
                 <span class="parameter" *ngFor="let param of mergeParameterInfo(ins)">

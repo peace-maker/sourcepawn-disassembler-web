@@ -46,6 +46,7 @@ import { RttiTypesetsSectionComponent } from './sections/rtti-typesets-section/r
 import { FileHeaderComponent } from './sections/file-header/file-header.component';
 import { CompressionTypeAsStringPipe } from './compression-type-as-string.pipe';
 import { ClassdefFlagsAsStringPipe } from './classdef-flags-as-string.pipe';
+import { ToHexStringPipe } from './to-hex-string.pipe';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { ClassdefFlagsAsStringPipe } from './classdef-flags-as-string.pipe';
     RttiTypesetsSectionComponent,
     FileHeaderComponent,
     CompressionTypeAsStringPipe,
-    ClassdefFlagsAsStringPipe
+    ClassdefFlagsAsStringPipe,
+    ToHexStringPipe
   ],
   imports: [
     BrowserModule,
