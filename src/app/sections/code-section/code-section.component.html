@@ -4,6 +4,9 @@
       <h4>Functions</h4>
     </div>
     <ul class="list-unstyled components">
+      <li>
+        <a href="#" (click)="selectedFunction = null" class="font-italic">cell view</a>
+      </li>
       <li *ngFor="let func of functions">
         <a href="#" (click)="selectedFunction = func">{{ func.name }}</a>
       </li>
@@ -12,7 +15,7 @@
   <div id="inner-content">
     <h2>Disassembly</h2>
     <app-section-header [section]="section" [extraHeaders]="headers"></app-section-header>
-    <div *ngIf="selectedFunction">
+    <div *ngIf="selectedFunction; else cellView">
       <h5>{{ selectedFunction.name }}</h5>
       <div class="alert alert-danger" role="alert" *ngIf="disassembleFunction(selectedFunction) === null; else disassembly">
         Could not disassemble method {{ selectedFunction.name }}: {{ selectedFunction.error }}
@@ -59,5 +62,26 @@
         </table>
       </ng-template>
     </div>
+    <ng-template #cellView>
+      <h5>Cell View</h5>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Offset</th>
+            <th scope="col">Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of getCells()" class="text-monospace">
+            <th scope="row">0x{{ row.offset.toString(16) }}</th>
+            <td class="hexdigits">
+              <span *ngFor="let col of row.cells">
+                {{ col | toHex:4 }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
   </div>
 </div>
