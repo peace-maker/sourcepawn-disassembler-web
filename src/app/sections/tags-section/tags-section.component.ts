@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxTagTable } from 'sourcepawn-disassembler';
 import { TagFlags } from 'sourcepawn-disassembler/lib/types/tagentry';
@@ -8,14 +8,11 @@ import { TagFlags } from 'sourcepawn-disassembler/lib/types/tagentry';
   templateUrl: './tags-section.component.html',
   styleUrls: ['./tags-section.component.scss']
 })
-export class TagsSectionComponent implements OnInit {
+export class TagsSectionComponent {
 
   @Input() section: SectionWrapper;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   get tags(): SmxTagTable {
     return <SmxTagTable>this.section.bin;

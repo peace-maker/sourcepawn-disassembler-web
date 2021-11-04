@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxDataSection } from 'sourcepawn-disassembler';
 
@@ -7,14 +7,12 @@ import { SmxDataSection } from 'sourcepawn-disassembler';
   templateUrl: './data-section-stringanalysis.component.html',
   styleUrls: ['./data-section-stringanalysis.component.scss']
 })
-export class DataSectionStringanalysisComponent implements OnInit {
+export class DataSectionStringanalysisComponent {
 
   @Input() section: SectionWrapper;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   public stringList() {
     const strings = [];

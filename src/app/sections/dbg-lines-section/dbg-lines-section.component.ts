@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxDebugLineTable, SmxDebugFileTable } from 'sourcepawn-disassembler';
 
@@ -7,15 +7,13 @@ import { SmxDebugLineTable, SmxDebugFileTable } from 'sourcepawn-disassembler';
   templateUrl: './dbg-lines-section.component.html',
   styleUrls: ['./dbg-lines-section.component.scss']
 })
-export class DbgLinesSectionComponent implements OnInit {
+export class DbgLinesSectionComponent {
 
   @Input() section: SectionWrapper;
   @Input() dbgFilesSection: SmxDebugFileTable;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get lines(): SmxDebugLineTable {
     return <SmxDebugLineTable>this.section.bin;

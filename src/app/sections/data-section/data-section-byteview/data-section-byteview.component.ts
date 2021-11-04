@@ -1,19 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-data-section-byteview',
   templateUrl: './data-section-byteview.component.html',
   styleUrls: ['./data-section-byteview.component.scss']
 })
-export class DataSectionByteviewComponent implements OnInit {
+export class DataSectionByteviewComponent {
 
   @Input() data: Uint8Array;
   private bytes;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   public getBytes() {
     // Only compute this view once.

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxRttiDataSection, SmxRttiMethodTable } from 'sourcepawn-disassembler';
 import { RttiMethodEntry } from 'sourcepawn-disassembler/lib/types/rtti/rttimethodentry';
@@ -8,15 +8,13 @@ import { RttiMethodEntry } from 'sourcepawn-disassembler/lib/types/rtti/rttimeth
   templateUrl: './rtti-methods-section.component.html',
   styleUrls: ['./rtti-methods-section.component.scss']
 })
-export class RttiMethodsSectionComponent implements OnInit {
+export class RttiMethodsSectionComponent {
 
   @Input() section: SectionWrapper;
   @Input() rttiData: SmxRttiDataSection;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get methods(): RttiMethodEntry[] {
     return (<SmxRttiMethodTable>this.section.bin).methods;

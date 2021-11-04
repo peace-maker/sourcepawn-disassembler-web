@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxTagTable, SmxLegacyDebugSymbolTable } from 'sourcepawn-disassembler';
 
@@ -7,15 +7,12 @@ import { SmxTagTable, SmxLegacyDebugSymbolTable } from 'sourcepawn-disassembler'
   templateUrl: './dbg-symbols-globals.component.html',
   styleUrls: ['./dbg-symbols-globals.component.scss']
 })
-export class DbgSymbolsGlobalsComponent implements OnInit {
+export class DbgSymbolsGlobalsComponent {
 
   @Input() section: SectionWrapper;
   @Input() tags: SmxTagTable;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   get symbols(): SmxLegacyDebugSymbolTable {
     return <SmxLegacyDebugSymbolTable>this.section.bin;

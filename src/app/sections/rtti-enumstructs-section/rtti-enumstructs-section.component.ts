@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SmxRttiDataSection, SmxRttiEnumStructTable, SourcePawnFile } from 'sourcepawn-disassembler';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { RttiEnumStructEntry, RttiEnumStructFieldEntry, RttiMethodEntry } from 'sourcepawn-disassembler/lib/types';
@@ -8,15 +8,13 @@ import { RttiEnumStructEntry, RttiEnumStructFieldEntry, RttiMethodEntry } from '
   templateUrl: './rtti-enumstructs-section.component.html',
   styleUrls: ['./rtti-enumstructs-section.component.scss']
 })
-export class RttiEnumstructsSectionComponent implements OnInit {
+export class RttiEnumstructsSectionComponent {
 
   @Input() section: SectionWrapper;
   @Input() smxfile: SourcePawnFile;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get enumstructs(): RttiEnumStructEntry[] {
     return (<SmxRttiEnumStructTable>this.section.bin).entries;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { SourcePawnFile, SmxDebugInfoSection } from 'sourcepawn-disassembler';
 import { SectionWrapper } from '../sectionwrapper';
 
@@ -7,15 +7,12 @@ import { SectionWrapper } from '../sectionwrapper';
   templateUrl: './sections.component.html',
   styleUrls: ['./sections.component.scss']
 })
-export class SectionsComponent implements OnInit {
+export class SectionsComponent {
 
   @Input() smxfile: SourcePawnFile;
   @Output() selectSection = new EventEmitter<SectionWrapper>();
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   public sectionList() {
     if (this.smxfile === undefined || this.smxfile.header === undefined) {

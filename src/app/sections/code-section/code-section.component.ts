@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxCodeV1Section, SourcePawnFile, V1Instruction, V1Disassembler, V1Param } from 'sourcepawn-disassembler';
 import { CodeV1Header, CodeV1Flags, CodeV1Features } from 'sourcepawn-disassembler/lib/types/codev1header';
@@ -20,7 +20,7 @@ export class PrintableParameter {
   templateUrl: './code-section.component.html',
   styleUrls: ['./code-section.component.scss']
 })
-export class CodeSectionComponent implements OnInit {
+export class CodeSectionComponent {
 
   @Input() smxfile: SourcePawnFile;
   @Input() section: SectionWrapper;
@@ -31,9 +31,6 @@ export class CodeSectionComponent implements OnInit {
   V1Param = V1Param;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   public disassembleFunction(fun: AvailableFunction): V1Instruction[] | null {
     if (fun.instructions) {

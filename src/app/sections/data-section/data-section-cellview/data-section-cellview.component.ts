@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxDataSection } from 'sourcepawn-disassembler';
 
@@ -7,15 +7,13 @@ import { SmxDataSection } from 'sourcepawn-disassembler';
   templateUrl: './data-section-cellview.component.html',
   styleUrls: ['./data-section-cellview.component.scss']
 })
-export class DataSectionCellviewComponent implements OnInit {
+export class DataSectionCellviewComponent {
 
   @Input() section: SectionWrapper;
   private cells;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   public getCells() {
     if (this.cells !== undefined) {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { RttiClassDefEntry } from 'sourcepawn-disassembler/lib/types/rtti/rtticlassdefentry';
 import { SmxRttiClassDefTable, SourcePawnFile, SmxRttiDataSection } from 'sourcepawn-disassembler';
@@ -9,15 +9,13 @@ import { RttiFieldEntry } from 'sourcepawn-disassembler/lib/types/rtti/rttifield
   templateUrl: './rtti-classdefs-section.component.html',
   styleUrls: ['./rtti-classdefs-section.component.scss']
 })
-export class RttiClassdefsSectionComponent implements OnInit {
+export class RttiClassdefsSectionComponent {
 
   @Input() section: SectionWrapper;
   @Input() smxfile: SourcePawnFile;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get classdefs(): RttiClassDefEntry[] {
     return (<SmxRttiClassDefTable>this.section.bin).classdefs;

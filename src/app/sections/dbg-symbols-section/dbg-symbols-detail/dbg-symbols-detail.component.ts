@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SmxTagTable } from 'sourcepawn-disassembler';
 import { DebugSymbolEntry } from 'sourcepawn-disassembler/lib/types/debugsymbolentry';
 
@@ -7,15 +7,13 @@ import { DebugSymbolEntry } from 'sourcepawn-disassembler/lib/types/debugsymbole
   templateUrl: './dbg-symbols-detail.component.html',
   styleUrls: ['./dbg-symbols-detail.component.scss']
 })
-export class DbgSymbolsDetailComponent implements OnInit {
+export class DbgSymbolsDetailComponent {
 
   @Input() symbol: DebugSymbolEntry;
   @Input() tags: SmxTagTable;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   public getTagName(tagid: number): string {
     if (!this.tags) {

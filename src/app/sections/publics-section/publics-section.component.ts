@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxPublicTable } from 'sourcepawn-disassembler';
 
@@ -7,14 +7,12 @@ import { SmxPublicTable } from 'sourcepawn-disassembler';
   templateUrl: './publics-section.component.html',
   styleUrls: ['./publics-section.component.scss']
 })
-export class PublicsSectionComponent implements OnInit {
+export class PublicsSectionComponent {
 
   @Input() section: SectionWrapper;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get publics(): SmxPublicTable {
     return <SmxPublicTable>this.section.bin;

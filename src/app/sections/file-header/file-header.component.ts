@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SourcePawnFile, FileHeader } from 'sourcepawn-disassembler';
 
 @Component({
@@ -6,14 +6,12 @@ import { SourcePawnFile, FileHeader } from 'sourcepawn-disassembler';
   templateUrl: './file-header.component.html',
   styleUrls: ['./file-header.component.scss']
 })
-export class FileHeaderComponent implements OnInit {
+export class FileHeaderComponent {
 
   @Input() smxfile: SourcePawnFile;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get header(): FileHeader {
     return this.smxfile.header;

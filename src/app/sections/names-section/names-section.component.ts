@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SmxNameTable } from 'sourcepawn-disassembler';
 import { SectionWrapper } from '../../sectionwrapper';
 
@@ -7,14 +7,12 @@ import { SectionWrapper } from '../../sectionwrapper';
   templateUrl: './names-section.component.html',
   styleUrls: ['./names-section.component.scss']
 })
-export class NamesSectionComponent implements OnInit {
+export class NamesSectionComponent {
 
   @Input() section: SectionWrapper;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   public namesList() {
     const names = [];

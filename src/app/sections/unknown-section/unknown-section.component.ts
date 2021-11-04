@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 
 @Component({
@@ -6,13 +6,10 @@ import { SectionWrapper } from 'src/app/sectionwrapper';
   templateUrl: './unknown-section.component.html',
   styleUrls: ['./unknown-section.component.scss']
 })
-export class UnknownSectionComponent implements OnInit {
+export class UnknownSectionComponent {
 
   @Input() section: SectionWrapper;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

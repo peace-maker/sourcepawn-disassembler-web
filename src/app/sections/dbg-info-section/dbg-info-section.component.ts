@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxDebugInfoSection } from 'sourcepawn-disassembler';
 
@@ -7,14 +7,12 @@ import { SmxDebugInfoSection } from 'sourcepawn-disassembler';
   templateUrl: './dbg-info-section.component.html',
   styleUrls: ['./dbg-info-section.component.scss']
 })
-export class DbgInfoSectionComponent implements OnInit {
+export class DbgInfoSectionComponent {
 
   @Input() section: SectionWrapper;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get info(): SmxDebugInfoSection {
     return <SmxDebugInfoSection>this.section.bin;

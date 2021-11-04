@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxPubvarTable } from 'sourcepawn-disassembler';
 
@@ -7,14 +7,12 @@ import { SmxPubvarTable } from 'sourcepawn-disassembler';
   templateUrl: './pubvars-section.component.html',
   styleUrls: ['./pubvars-section.component.scss']
 })
-export class PubvarsSectionComponent implements OnInit {
+export class PubvarsSectionComponent {
 
   @Input() section: SectionWrapper;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get pubvars(): SmxPubvarTable {
     return <SmxPubvarTable>this.section.bin;

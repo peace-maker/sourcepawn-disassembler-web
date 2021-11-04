@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxRttiDataSection } from 'sourcepawn-disassembler';
 
@@ -7,14 +7,12 @@ import { SmxRttiDataSection } from 'sourcepawn-disassembler';
   templateUrl: './rtti-data-section.component.html',
   styleUrls: ['./rtti-data-section.component.scss']
 })
-export class RttiDataSectionComponent implements OnInit {
+export class RttiDataSectionComponent {
 
   @Input() section: SectionWrapper;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get data(): Uint8Array {
     const dataSection = this.section.bin as SmxRttiDataSection;

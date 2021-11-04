@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxDebugNativeTable, SmxTagTable } from 'sourcepawn-disassembler';
 
@@ -7,15 +7,13 @@ import { SmxDebugNativeTable, SmxTagTable } from 'sourcepawn-disassembler';
   templateUrl: './dbg-natives-section.component.html',
   styleUrls: ['./dbg-natives-section.component.scss']
 })
-export class DbgNativesSectionComponent implements OnInit {
+export class DbgNativesSectionComponent {
 
   @Input() section: SectionWrapper;
   @Input() tags: SmxTagTable;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get natives(): SmxDebugNativeTable {
     return <SmxDebugNativeTable>this.section.bin;

@@ -14,7 +14,7 @@
     <app-section-header [section]="section" [extraHeaders]="headers"></app-section-header>
     <div *ngIf="selectedFunction">
       <h5>{{ selectedFunction.name }}</h5>
-      <div class="alert alert-danger" role="alert" *ngIf="disassembleFunction(selectedFunction) == null; else disassembly">
+      <div class="alert alert-danger" role="alert" *ngIf="disassembleFunction(selectedFunction) === null; else disassembly">
         Could not disassemble method {{ selectedFunction.name }}: {{ selectedFunction.error }}
       </div>
       <ng-template #disassembly>

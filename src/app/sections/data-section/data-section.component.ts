@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxDataSection } from 'sourcepawn-disassembler';
 
@@ -13,7 +13,7 @@ export enum ViewType {
   templateUrl: './data-section.component.html',
   styleUrls: ['./data-section.component.scss']
 })
-export class DataSectionComponent implements OnInit {
+export class DataSectionComponent {
 
   ViewType = ViewType;
   viewType: ViewType = ViewType.ByteView;
@@ -22,8 +22,6 @@ export class DataSectionComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get data(): Uint8Array {
     const dataSection = this.section.bin as SmxDataSection;

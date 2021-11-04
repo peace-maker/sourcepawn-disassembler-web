@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { RttiEnumEntry } from 'sourcepawn-disassembler/lib/types';
 import { SmxRttiEnumTable } from 'sourcepawn-disassembler';
@@ -8,14 +8,12 @@ import { SmxRttiEnumTable } from 'sourcepawn-disassembler';
   templateUrl: './rtti-enums-section.component.html',
   styleUrls: ['./rtti-enums-section.component.scss']
 })
-export class RttiEnumsSectionComponent implements OnInit {
+export class RttiEnumsSectionComponent {
 
   @Input() section: SectionWrapper;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get enums(): RttiEnumEntry[] {
     return (<SmxRttiEnumTable>this.section.bin).enums;

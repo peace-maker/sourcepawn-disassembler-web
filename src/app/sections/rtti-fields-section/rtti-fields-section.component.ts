@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxRttiFieldTable, SmxRttiDataSection } from 'sourcepawn-disassembler';
 import { RttiFieldEntry } from 'sourcepawn-disassembler/lib/types/rtti/rttifieldentry';
@@ -8,15 +8,13 @@ import { RttiFieldEntry } from 'sourcepawn-disassembler/lib/types/rtti/rttifield
   templateUrl: './rtti-fields-section.component.html',
   styleUrls: ['./rtti-fields-section.component.scss']
 })
-export class RttiFieldsSectionComponent implements OnInit {
+export class RttiFieldsSectionComponent {
 
   @Input() section: SectionWrapper;
   @Input() rttiData: SmxRttiDataSection;
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   get fields(): RttiFieldEntry[] {
     return (<SmxRttiFieldTable>this.section.bin).fields;

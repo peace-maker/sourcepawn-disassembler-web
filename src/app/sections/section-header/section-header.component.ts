@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionWrapper } from 'src/app/sectionwrapper';
 import { SmxRttiListTable } from 'sourcepawn-disassembler';
 
@@ -7,7 +7,7 @@ import { SmxRttiListTable } from 'sourcepawn-disassembler';
   templateUrl: './section-header.component.html',
   styleUrls: ['./section-header.component.scss']
 })
-export class SectionHeaderComponent implements OnInit {
+export class SectionHeaderComponent {
 
   public hideHeaders = true;
   private headers: any[];
@@ -16,8 +16,6 @@ export class SectionHeaderComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
   public sectionHeaders() {
     if (this.headers) {
