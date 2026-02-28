@@ -16,16 +16,24 @@ export class DataSectionStringanalysisComponent {
 
   public stringList() {
     const strings = [];
+    const whitespace = [0x09, 0x0a, 0x0b, 0x0c, 0x0d];
+    const whitespace_printable = ['\\t', '\\n', '\\v', '\\f', '\\r'];
 
     const dataSection = this.section.bin as SmxDataSection;
     const reader = new Uint8Array(dataSection.dataReader());
 
     let currentString = '';
-    for (let i = 0; i < dataSection.dataheader.datasize; i++) {
+    for (let i = 0; i < reader.length; i++) {
       const b = reader[i];
       if (b === 0 && currentString.length > 0) {
         strings.push({'offset': i, 'string': currentString});
         currentString = '';
+        continue;
+      }
+
+      // Display whitespace characters as their escape sequences, but treat them as part of strings.
+      if (whitespace.includes(b)) {
+        currentString += whitespace_printable[whitespace.indexOf(b)];
         continue;
       }
 
