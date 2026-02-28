@@ -197,14 +197,11 @@ export class CodeSectionComponent {
       if (codeSection.codeheader.codeversion >= CodeV1Header.VERSION_FEATURES) {
         // Translate feature bitset to readable string.
         const featureList = [];
-        if (codeSection.codeheader.features & CodeV1Features.Deprecated0) {
-          featureList.push('Deprecated0');
-        }
-        if (codeSection.codeheader.features & CodeV1Features.DirectArrays) {
-          featureList.push('DirectArrays');
-        }
-        if (codeSection.codeheader.features & CodeV1Features.HeapScopes) {
-          featureList.push('HeapScopes');
+        for (const tl of Object.keys(CodeV1Features)) {
+          const value = CodeV1Features[tl];
+          if (typeof value === 'number' && (codeSection.codeheader.features & value)) {
+            featureList.push(tl);
+          }
         }
         const features = ' (' + featureList.join(', ') + ')';
         this.extraHeaders.push({ 'key': 'features', 'value': '0x' + codeSection.codeheader.features.toString(16) + features });
